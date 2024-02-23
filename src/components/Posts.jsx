@@ -1,58 +1,47 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import AuthContext from '../contexts/AuthContext';
+import { update_post_likes } from '../services/PostService';
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
 
-    // Estado para mantener el recuento de likes
-    const [likes, setLikes] = useState(0);
-    // Estado para mantener si el post ha sido "liked" o no
-    const [liked, setLiked] = useState(false);
-  
-    // Función para manejar el evento de "like"
-    const handleLike = () => {
-      if (!liked) {
-        setLikes(likes + 1);
-        setLiked(true);
-      } else {
-        setLikes(likes - 1);
-        setLiked(false);
-      }
-    };
+  const handleLike = () => {
+    update_post_likes({ likes: posts.likes + 1 }); 
+  };
 
-//   useEffect(() => {
-//     fetch('http://localhost:3000/posts')
-//       .then(response => response.json())
-//       .then(data => setPosts(data))
-//       .catch(error => console.error(error));
-//   }, []);
+  //   useEffect(() => {
+  //     fetch('http://localhost:3000/posts')
+  //       .then(response => response.json())
+  //       .then(data => setPosts(data))
+  //       .catch(error => console.error(error));
+  //   }, []);
 
-    useEffect(() => {
-    axios.get('http://localhost:3000/posts')
-      .then(response => setPosts(response.data))
-      .catch(error => console.error(error));
-    }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/posts")
+      .then((response) => setPosts(response.data))
+      .catch((error) => console.error(error));
+  }, []);
 
   return (
     <div>
       <h1>Posts</h1>
       {console.log(posts)}
-        {posts.map(post => (
-            <div key={post.id}>
-            <h2>{post.title} by user: {post.user}</h2>
-            <p>{post.content}</p>
-            <p>{post.location}</p>
-            <img 
-            src={post.image} 
-            // src={post.image} 
-            alt={post.title} />
-            <button onClick={handleLike}>
-                {liked ? 'Unlike' : 'Like'} ({likes})
-            </button>
-
-            
-            </div>
-        ))}
+      {posts.map((post_returned) => (
+        <div key={post_returned.id}>
+          {/* <h2>{post_returned.title} by user: {post_returned.user}</h2> */}
+          <p>{post_returned.id}</p>
+          <p>{post_returned.content}</p>
+          <p>{post_returned.location}</p>
+          <img
+            src={post_returned.image}
+            // src={post_returned.image}
+            alt={post_returned.title}
+          />
+          <button onClick={handleLike}>{post_returned.likes.length}</button>
+        </div>
+      ))}
     </div>
   );
 };
