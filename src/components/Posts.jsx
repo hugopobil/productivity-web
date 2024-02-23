@@ -4,6 +4,22 @@ import axios from 'axios';
 const Posts = () => {
   const [posts, setPosts] = useState([]);
 
+    // Estado para mantener el recuento de likes
+    const [likes, setLikes] = useState(0);
+    // Estado para mantener si el post ha sido "liked" o no
+    const [liked, setLiked] = useState(false);
+  
+    // Función para manejar el evento de "like"
+    const handleLike = () => {
+      if (!liked) {
+        setLikes(likes + 1);
+        setLiked(true);
+      } else {
+        setLikes(likes - 1);
+        setLiked(false);
+      }
+    };
+
 //   useEffect(() => {
 //     fetch('http://localhost:3000/posts')
 //       .then(response => response.json())
@@ -26,7 +42,13 @@ const Posts = () => {
             <h2>{post.title} by user: {post.user}</h2>
             <p>{post.content}</p>
             <p>{post.location}</p>
-            <img src={post.image} alt={post.title} />
+            <img 
+            src={post.image} 
+            // src={post.image} 
+            alt={post.title} />
+            <button onClick={handleLike}>
+                {liked ? 'Unlike' : 'Like'} ({likes})
+            </button>
 
             
             </div>

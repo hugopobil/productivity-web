@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
-import Navbar from "./components/NavBar";
 import Posts from "./components/Posts";
 import Login from "./pages/Login";
+import Navbar from "../src/components/NavBar";
 
 
 function App() {
