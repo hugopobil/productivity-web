@@ -3,11 +3,14 @@ import { createHttp } from "./BaseService";
 const http = createHttp(true);
 
 export const getPosts = () => {
-    // console.log(http.get('/posts'));
     return http.get('/posts')
 }
 
-// export const update_post_likes = (data) => {
-//     return http.put('/posts/post:id', data)
-// }
+export const likePost = (postId) => {
+    return http.post(`/posts/like/${postId}`)
+}
+
+export const createPost = (data) => {
+    return http.post('/posts/createNewPost', data)
+}
 

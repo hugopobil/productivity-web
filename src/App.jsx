@@ -5,6 +5,8 @@ import Posts from "./components/Posts";
 import Login from "./pages/Login";
 import Navbar from "../src/components/NavBar";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Profile from "./pages/Profile";
+import NewPostForm from "./components/NewPostForm";
 
 
 function App() {
@@ -15,11 +17,14 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/posts" element={<ProtectedRoute><Posts/></ProtectedRoute>} />
-          
+          <Route path="/profile" element={<Profile />}/>
+          <Route path="/posts/create" element={<ProtectedRoute><NewPostForm/></ProtectedRoute>} />
         </Routes>
+
+        {/* <UtilsBar /> */}
       </div>
     </div>
   );

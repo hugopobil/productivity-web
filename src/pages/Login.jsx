@@ -29,8 +29,9 @@ const Login = () => {
       password: "",
     },
     onSubmit: (values) => {
-      console.log(values);
-      login(values).then(() => navigate("/posts"));
+      login(values).then(() => {
+        navigate("/posts")
+      });
     },
     validationSchema: userSchema,
     validateOnChange: true,
