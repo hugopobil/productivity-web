@@ -4,6 +4,7 @@ import Register from "./pages/Register";
 import Posts from "./components/Posts";
 import Login from "./pages/Login";
 import Navbar from "../src/components/NavBar";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 
 function App() {
@@ -16,9 +17,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/posts" element={<Posts />} />
+          <Route path="/posts" element={<ProtectedRoute><Posts/></ProtectedRoute>} />
           
-
         </Routes>
       </div>
     </div>

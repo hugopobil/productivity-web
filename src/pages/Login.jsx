@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import { string, object } from "yup";
 import { useContext } from "react";
 import { useNavigate } from "react-router";
-import AuthContext from '../contexts/AuthContext';
+import AuthContext from "../contexts/AuthContext";
 
 const userSchema = object({
   email: string().email("Enter a valid email").required("Required field"),
@@ -12,7 +12,7 @@ const userSchema = object({
 });
 
 const Login = () => {
-  const { Login } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const {
