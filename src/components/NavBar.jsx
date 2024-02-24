@@ -6,7 +6,7 @@ import Button from '../components/Button';
 
 const Navbar = () => {
 
-  const { logout } = useContext(AuthContext);
+  const { logout, user } = useContext(AuthContext);
 
   return (
     <nav className="navbar">
@@ -28,10 +28,9 @@ const Navbar = () => {
           <Link to="/posts" className="navbar__link">Posts</Link>
         </li>
 
-        <li className="navbar-item">
+        {user && <li className="navbar-item">
           <Button onClick={logout} className="navbar__link">Logout</Button>
-        </li>
-
+        </li>}
       </ul>
     </nav>
   );
