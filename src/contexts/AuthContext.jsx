@@ -8,7 +8,7 @@ const AuthContext = createContext()
 
 export default AuthContext;
 
-export const AuthConextProvider = ({ children }) => {
+export const AuthContextProvider = ({ children }) => {
     const { pathname } = useLocation();
     const [user, setUser] = useState(null); 
     const [isAuthFetched, setIsAuthFetched] = useState(false); 
@@ -47,15 +47,21 @@ export const AuthConextProvider = ({ children }) => {
         }
     }, [fetchCurrentUser, pathname])
 
+    const logout = useCallback(() => {
+        setAccessToken(null);
+        setUser(null);
+    }, [])
+
     const contextValue = useMemo(() => ({
         isAuthFetched,
         user,
         login,
+        logout,
     }), [isAuthFetched, user, login]);
 
     return( 
-        <AuthConext.Provider value={contextValue}>
+        <AuthContext.Provider value={contextValue}>
             {children}
-        </AuthConext.Provider>
+        </AuthContext.Provider>
     )
 }
