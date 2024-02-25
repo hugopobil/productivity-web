@@ -1,8 +1,14 @@
+import TitleBar from '../components/TitleBar';
+import './Home.css'
+import Button from '../components/Button';
+
 const Home = () => {
   return (
     <div className="home-container">
-      <h1>Welcome to the Home Page</h1>
-      <p>This is the home page of your application.</p>
+        <div className="HomeSquare">
+          <Button className="RegisterButton" link="true" linkTo="/register">Register</Button>
+          <Button className="LoginButton" link="true" linkTo="/login">Login</Button>
+        </div>
     </div>
   );
 };

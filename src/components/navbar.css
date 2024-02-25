@@ -1,1 +1,21 @@
+.navbar {
+    height: 68px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: rgba(70, 62, 62, 1);
+}
+
+.navbar-list {
+    display: flex; 
+    list-style-type: none; 
+    padding: 0; 
+    justify-content: space-around; 
+}
+
+.navbar__link {
+    text-decoration: none; 
+    color: white;
+}
+
 
