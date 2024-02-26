@@ -3,7 +3,6 @@ import { string, object } from "yup";
 import { useContext } from "react";
 import { useNavigate } from "react-router";
 import AuthContext from "../contexts/AuthContext";
-import TitleBar from "../components/TitleBar";
 import "./Login.css"
 
 const userSchema = object({
@@ -45,10 +44,10 @@ const Login = () => {
     <div className="Login-Container">
       <div className="Form">
       <h1>Login</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="Login">
           <div className="input">
             <label htmlFor="email">Email:</label>
-            <input
+            <input 
               type="email"
               id="email"
               name="email"
@@ -60,7 +59,7 @@ const Login = () => {
           </div>
           <div className="input">
             <label htmlFor="password">Password:</label>
-            <input
+            <input 
               type="password"
               id="password"
               name="password"

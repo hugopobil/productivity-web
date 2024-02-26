@@ -4,6 +4,10 @@
     justify-content: center;
     align-items: center; 
     height: 100vh;
+    border-color: #1400FF;
+    border-width: medium;
+    border-style: solid;
+    width: auto;
 }
 
 .home-content {
@@ -16,33 +20,43 @@
     display: flex;
     height: 196px;
     width: 296px;
-    background-color: #5D8586;
+    background-color: white;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    border-color: #1400FF;
+    border-width: medium;
+    border-style: solid;
 }
 
-.RegisterButton{
-    height: 29px;
-    width: 109px;
-    border-radius: 10px;
+.HomeSquare .RegisterButton{
+    height: 32px;
+    width: 107px;
     appearance: none;
-    border: none; 
     outline: none; 
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
     background-color: white;
-    color: black;
+    color:#1400FF;
+    border-color: #1400FF;
+    border-width: medium;
+    border-style: solid;
+    border-radius: 0;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    text-decoration: none;
 }
 
-.LoginButton{
-    height: 29px;
-    width: 109px;
-    background-color: #463E3E;
+.HomeSquare .LoginButton{
+    height: 32px;
+    width: 107px;
     color: white;
-    border-radius: 10px;
     appearance: none;
-    border: none;
     outline: none;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    background-color: #1400FF;
+    border-color: #1400FF;
+    border-width: medium;
+    border-style: solid;
+    text-align: center;
+    text-decoration: none;
 }

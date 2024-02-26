@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
 
-const Button = ({ onClick, children, className, link, linkTo }) => {
+const Button = ({ onClick, children, className, linkTo }) => {
 
-  if (link) {
+  if (linkTo) {
     return (
       <Link to={linkTo} className={className}>
-        <button onClick={onClick} className={className}>
-          {children}
-        </button>
+          {children} 
       </Link>
     );
   }

@@ -2,61 +2,58 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%; 
+    height: 100vh;
     justify-content: center;
     color: white;
+    border-color: #1400FF;
+    border-width: medium;
+    border-style: solid;
+    padding: 0 12px;
 }
 
 .Form {
-    width: 352px;
+    width: 100%;
     height: 343px;
-    background-color: #5D8586;
-    margin-top: 203px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-input {
-    width: 320px;
-    height: 41px;
-    border-radius: 20px;
-    appearance: none;
-    border: none; 
-    outline: none; 
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
     background-color: white;
-    text-align: center;
-    margin-left: 14.5px;
+    border-color: #1400FF;
+    border-width: medium;
+    border-style: solid;
+    color: #1400FF;
+    max-width: 768px;
+    padding: 8px;
 }
 
-button {
-    height: 29px;
-    width: 109px;
-    background-color: #463E3E;
+.Form input {
+    width: 100%;
+    height: 41px;
+    border-color: #1400FF;
+    border-width: medium;
+    border-style: solid;
+}
+
+.Form button {
+    height: 32px;
+    width: 107px;
     color: white;
-    border-radius: 10px;
     appearance: none;
-    border: none;
     outline: none;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    background-color: #1400FF;
+    border-color: #1400FF;
+    border-width: medium;
+    border-style: solid;
+    text-align: center;
+    text-decoration: none;
+    margin: 12px auto 0;
 } 
 
-label {
-    text-align: start;
-    width: 100%; 
-    margin-bottom: 5px; 
-    padding-left: 27px;
-}
-
-form {
+.Login {
+    height: 260px; 
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 100%;
+    /*justify-content: space-around;*/
 }
 
-.input {
-    width: 100%;;
+.Login .input {
+    margin-top: 15px;
 }

@@ -1,10 +1,13 @@
 
 .TitleBar {
-    background-color: rgba(70, 62, 62, 1);
+    background-color: #FFFFFF;
     height: 94px;
-    color: #FFFFFF;
+    color: #1400FF;
     width: 100%;
     text-align: center;
     position: fixed;
     top: 0;
+    border-color: #1400FF;
+    border-width: medium;
+    border-style: solid;
 }

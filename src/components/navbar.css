@@ -3,7 +3,10 @@
     width: 100%;
     position: fixed;
     bottom: 0;
-    background-color: rgba(70, 62, 62, 1);
+    background-color: white;
+    border-color: #1400FF;
+    border-width: medium;
+    border-style: solid;
 }
 
 .navbar-list {
@@ -15,7 +18,7 @@
 
 .navbar__link {
     text-decoration: none; 
-    color: white;
+    color: #1400FF;
 }
 
 

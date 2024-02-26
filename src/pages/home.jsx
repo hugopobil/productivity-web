@@ -6,8 +6,8 @@ const Home = () => {
   return (
     <div className="home-container">
         <div className="HomeSquare">
-          <Button className="RegisterButton" link="true" linkTo="/register">Register</Button>
-          <Button className="LoginButton" link="true" linkTo="/login">Login</Button>
+          <Button className="RegisterButton" linkTo="/register">Register</Button>
+          <Button className="LoginButton" linkTo="/login">Login</Button>
         </div>
     </div>
   );
