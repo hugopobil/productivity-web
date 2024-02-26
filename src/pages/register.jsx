@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { register } from "../services/AuthService";
 import { useNavigate } from "react-router-dom";
+import "./Register.css"
 
 const Register = () => {
 

@@ -4,6 +4,7 @@ import Register from "./pages/Register";
 import Posts from "./components/Posts";
 import Login from "./pages/Login";
 import Navbar from "../src/components/NavBar";
+import TitleBar from "./components/TitleBar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import NewPostForm from "./components/NewPostForm";
@@ -12,6 +13,7 @@ import NewPostForm from "./components/NewPostForm";
 function App() {
   return (
     <div className="App">
+      <TitleBar/>
       <Navbar />
 
       <div>

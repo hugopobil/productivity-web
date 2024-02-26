@@ -3,6 +3,7 @@ import { string, object } from "yup";
 import { useContext } from "react";
 import { useNavigate } from "react-router";
 import AuthContext from "../contexts/AuthContext";
+import "./Login.css"
 
 const userSchema = object({
   email: string().email("Enter a valid email").required("Required field"),
@@ -40,36 +41,39 @@ const Login = () => {
   });
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={values.email}
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {touched.email && errors.email && <div>{errors.email}</div>}
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={values.password}
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {touched.password && errors.password && <div>{errors.password}</div>}
-        </div>
-        <button type="submit" disabled={!isValid}>
-          Login
-        </button>
-      </form>
+    <div className="Login-Container">
+      <div className="Form">
+      <h1>Login</h1>
+        <form onSubmit={handleSubmit} className="Login">
+          <div className="input">
+            <label htmlFor="email">Email:</label>
+            <input 
+              type="email"
+              id="email"
+              name="email"
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {touched.email && errors.email && <div>{errors.email}</div>}
+          </div>
+          <div className="input">
+            <label htmlFor="password">Password:</label>
+            <input 
+              type="password"
+              id="password"
+              name="password"
+              value={values.password}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {touched.password && errors.password && <div>{errors.password}</div>}
+          </div>
+          <button type="submit" disabled={!isValid}>
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

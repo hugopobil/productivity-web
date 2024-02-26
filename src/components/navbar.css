@@ -1,1 +1,24 @@
+.navbar {
+    height: 68px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+    border-color: #1400FF;
+    border-width: medium;
+    border-style: solid;
+}
+
+.navbar-list {
+    display: flex; 
+    list-style-type: none; 
+    padding: 0; 
+    justify-content: space-around; 
+}
+
+.navbar__link {
+    text-decoration: none; 
+    color: #1400FF;
+}
+
 
