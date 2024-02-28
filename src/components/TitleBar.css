@@ -1,13 +1,44 @@
 
 .TitleBar {
-    background-color: #FFFFFF;
+    background-color: #1400FF;
+    /* background-color: darkgreen; */
     height: 94px;
-    color: #1400FF;
+    color: #FFFFFF;
     width: 100%;
     text-align: center;
     position: fixed;
     top: 0;
-    border-color: #1400FF;
-    border-width: medium;
-    border-style: solid;
+    border: 0;
+    /* border-color: #1400FF; */
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.TitleBar h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 2em;
+}
+
+.TitleBar h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+}
+
+.TitleBar-item {
+    color: white !important;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 10px;
+}
+
+.TitleBar__link {
+    color: white;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
 }
