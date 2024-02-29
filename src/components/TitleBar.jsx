@@ -8,11 +8,15 @@ const TitleBar = () => {
 
   return (
     <div className="TitleBar">
-      <h1>ACHIEVE IT</h1>
+      <h1>
+        <Link to="/" className="TitleBar__link">
+        ACHIEVE IT
+        </Link>
+        </h1>
       {user && (
         <div className="TitleBar-item">
           <Link to="/profile" className="TitleBar__link">
-            {user.username}
+            Profile
           </Link>
         </div>
       )}

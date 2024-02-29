@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router";
 import AuthContext from "../contexts/AuthContext";
 import "./Login.css"
+import Button from "../components/Button";
 
 const userSchema = object({
   email: string().email("Enter a valid email").required("Required field"),
@@ -72,6 +73,9 @@ const Login = () => {
           <button type="submit" disabled={!isValid}>
             Login
           </button>
+          <br />
+          <p>If you dont have an account, please register using the following link:</p>
+          <Button className="RegisterButton" linkTo="/register">Register</Button>
         </form>
       </div>
     </div>

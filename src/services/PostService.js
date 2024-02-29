@@ -14,3 +14,7 @@ export const createPost = (data) => {
     return http.post('/posts/createNewPost', data)
 }
 
+export const createComment = (postId, data) => {
+    return http.post(`/posts/${postId}/comment`, data)
+}
+
