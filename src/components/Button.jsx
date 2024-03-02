@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Button = ({ onClick, children, className, linkTo }) => {
+const Button = ({ onClick, children, className, linkTo, type }) => {
 
   if (linkTo) {
     return (
@@ -11,7 +11,7 @@ const Button = ({ onClick, children, className, linkTo }) => {
   }
 
   return (
-    <button onClick={onClick} className={className}>
+    <button onClick={onClick} className={className} type={type}>
       {children}
     </button>
   );
