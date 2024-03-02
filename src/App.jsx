@@ -22,8 +22,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/posts" element={<ProtectedRoute><Posts/></ProtectedRoute>} />
-          <Route path="/profile" element={<Profile />}/>
-          {/* <Route path="/active/:token" element={<Activation />}/> */}
+          <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>}/>
           <Route path="/posts/create" element={<ProtectedRoute><NewPostForm/></ProtectedRoute>} />
         </Routes>
 

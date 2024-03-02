@@ -2,13 +2,14 @@ import React, { useState, useEffect, useContext } from "react";
 import { getPosts, likePost } from "../services/PostService";
 import AuthContext from "../contexts/AuthContext";
 import "./posts.css";
-import { createComment } from "../services/PostService";
+import { createComment, deleteComment as deleteCommentService } from "../services/PostService";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [commentText, setCommentText] = useState("");
   const { user } = useContext(AuthContext);
-  const [ comment, setComment ] = useState(false)
+  const [comment, setComment] = useState(false);
+  
 
   console.log(user);
 
@@ -26,25 +27,31 @@ const Posts = () => {
       .catch((error) => console.error(error));
   };
 
-  // const handleComment = (postId, content) => {
-  //   createComment(postId, content).then((response) => {
-  //     fetchPosts();
-  //   });
+  // const handleCommentButton = () => {
+  //   console.log("comment button clicked");
+  //   console.log(comment);
+  //   setComment(!comment);
+  //   fetchPosts();
   // };
 
-  const handleCommentButton = () => {
-    console.log("comment button clicked");
-    console.log(comment);
-    setComment(!comment);
-    fetchPosts();
+  const handleCommentSubmit = (postId, content) => {
+    createComment(postId, { content: content, user: user.id }).then((response) => {
+      fetchPosts();
+      setCommentText(""); // Clear the input content
+    });
   };
 
-  const handleCommentSubmit = (postId, content) => {
-    createComment(postId, { content: content, user: user.id })
-    .then((response) => {
+  const deleteComment = (commentId) => {
+    deleteCommentService(commentId).then((response) => {
       fetchPosts();
     });
   }
+
+  const handleShare = () => {
+    const route = window.location.pathname;
+    navigator.clipboard.writeText(route);
+    alert("Path has been copied to the clipboard");
+  };
 
   useEffect(() => {
     fetchPosts();
@@ -67,16 +74,18 @@ const Posts = () => {
           return (
             <div key={post_returned.id} className="post-container">
               <div className="posts-user-info">
-                <img src={post_returned.user.image} alt="..." />
-                <p className="by-user">{post_returned.user.username}</p>
+                <img src={post_returned.user.image} alt="" />
+                <p className="by-user"><strong>{post_returned.user.username}</strong></p>
               </div>
               <p className="posts-location">
                 <strong>{post_returned.location}</strong>
               </p>
               <img src={post_returned.image} alt={post_returned.title} />
+              <div className="post-likes">Post liked by {post_returned.likes ? post_returned.likes.length : 0} people</div>
               <h2 className="posts-title">{post_returned.title}</h2>
               <p className="posts-content">{post_returned.content}</p>
-              <p className="posts-likes-head">
+              
+              {/* <p className="posts-likes-head">
                 <strong>Likes:</strong>
               </p>
               {post_returned.likes.map((like) => {
@@ -85,8 +94,7 @@ const Posts = () => {
                     <li key={like.user?.id}>{like.user?.username}</li>
                   </ul>
                 );
-              })}
-              <br />
+              })} */}
 
               <div className="posts-actions">
                 <button
@@ -97,62 +105,42 @@ const Posts = () => {
                   Like
                 </button>
 
-                <button
-                  className="like-button"
-                  onClick={() => handleCommentButton()}
-                >
-                  Comment
-                </button>
-
-                <button
-                  className="like-button"
-                  onClick={() => handleLike(post_returned.id)}
-                >
+                <button className="share-button" onClick={handleShare}>
                   Share
                 </button>
-
-                {/* <div className="comment-section">
-                  <input
-                    type="text"
-                    value={commentText}
-                    onChange={(e) => setCommentText(e.target.value)}
-                  />
-                  <button
-                    onClick={() => handleComment(post_returned.id, commentText)}
-                  >
-                    Comment
-                  </button>
-                </div> */}
               </div>
 
-              {comment &&
-                
-                    <div className="comment-section">
-                      <input
-                        type="text"
-                        value={commentText}
-                        onChange={(e) => setCommentText(e.target.value)}
-                      />
-                      <button
-                        onClick={() =>
-                          handleCommentSubmit(post_returned.id, commentText)
-                        }
-                      >
-                        Submit
-                      </button>
-                    </div>
-                }
               <div className="posts-commments-display">
                 {/* {post_returned.comments} */}
                 {post_returned.comments.map((comment) => {
                   return (
-                    <div className="comments">
-                      <p><strong>{comment.user.username}</strong>  {comment.content}</p>
-                      {/* <button onClick={deteleComment}>Detele</button> */}
+                    <div className="comments" key={comment.id}>
+                      <p>
+                        <strong>{comment.user.username}</strong>{" "}{comment.content}
+                      </p>
+                      <button className="delete-button" onClick={() => deleteComment(comment.id)}>Detele</button>
                     </div>
                   );
                 })}
               </div>
+              
+                <div className="comment-section">
+                  <input
+                    className="comment-input"
+                    type="text"
+                    placeholder="Write a comment..."
+                    value={commentText}
+                    onChange={(e) => setCommentText(e.target.value)}
+                  />
+                  <button
+                    className="comment-button"
+                    onClick={() =>
+                      handleCommentSubmit(post_returned.id, commentText)
+                    }
+                  >
+                    Submit
+                  </button>
+                </div>
             </div>
           );
         })}

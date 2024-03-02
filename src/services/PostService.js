@@ -6,6 +6,10 @@ export const getPosts = () => {
     return http.get('/posts')
 }
 
+export const getUserPosts = (userId) => {
+    return http.get(`/posts/user/${userId}`)
+}
+
 export const likePost = (postId) => {
     return http.post(`/posts/like/${postId}`)
 }
@@ -16,5 +20,9 @@ export const createPost = (data) => {
 
 export const createComment = (postId, data) => {
     return http.post(`/posts/${postId}/comment`, data)
+}
+
+export const deleteComment = (commentId) => {
+    return http.delete(`/posts/${commentId}`)
 }
 

@@ -73,9 +73,9 @@ const Login = () => {
           <button clasName="Login-button" type="submit" disabled={!isValid}>
             Login
           </button>
-          <Button className="Register-button" linkTo="/register">Register</Button>
-          <p>If you dont have an account, please register using the following link:</p>
           
+          <p>If you dont have an account, please register using the following link:</p>
+          <Button className="Register-button" linkTo="/register">Register</Button>
         </form>
       </div>
     </div>
