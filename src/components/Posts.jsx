@@ -48,7 +48,7 @@ const Posts = () => {
   }
 
   const handleShare = () => {
-    const route = window.location.pathname;
+    const route = "localhost:5173" + window.location.pathname;
     navigator.clipboard.writeText(route);
     alert("Path has been copied to the clipboard");
   };
@@ -81,7 +81,7 @@ const Posts = () => {
                 <strong>{post_returned.location}</strong>
               </p>
               <img src={post_returned.image} alt={post_returned.title} />
-              <div className="post-likes">Post liked by {post_returned.likes ? post_returned.likes.length : 0} people</div>
+              <div className="post-likes">Supports achieved: {post_returned.likes ? post_returned.likes.length : 0} people</div>
               <h2 className="posts-title">{post_returned.title}</h2>
               <p className="posts-content">{post_returned.content}</p>
               
@@ -102,7 +102,7 @@ const Posts = () => {
                   onClick={() => handleLike(post_returned.id)}
                   style={buttonStyle}
                 >
-                  Like
+                  Support
                 </button>
 
                 <button className="share-button" onClick={handleShare}>
