@@ -8,7 +8,7 @@ import TitleBar from "./components/TitleBar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import NewPostForm from "./components/NewPostForm";
-
+// import Activation from "./components/Activation";
 
 function App() {
   return (

@@ -8,4 +8,8 @@ export const getUser = () => {
 
 export const getCurrentUser = () => {
     return http.get('/users/me')
+} 
+
+export const activateUser = () => {
+    return http.get('/activate/:token')
 }
