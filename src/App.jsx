@@ -8,7 +8,7 @@ import TitleBar from "./components/TitleBar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import NewPostForm from "./components/NewPostForm";
-
+// import Activation from "./components/Activation";
 
 function App() {
   return (
@@ -23,6 +23,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/posts" element={<ProtectedRoute><Posts/></ProtectedRoute>} />
           <Route path="/profile" element={<Profile />}/>
+          {/* <Route path="/active/:token" element={<Activation />}/> */}
           <Route path="/posts/create" element={<ProtectedRoute><NewPostForm/></ProtectedRoute>} />
         </Routes>
 
