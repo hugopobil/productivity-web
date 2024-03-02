@@ -41,33 +41,33 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <h1>Registration Form</h1>
+    <div className="Register-container">
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
         validate={validate}
       >
-        <Form>
-          <div>
-            <label htmlFor="username">username</label>
-            <Field type="text" id="username" name="username" />
+        <Form className="Registation-form">
+        <h1>Registration</h1>
+          <div className="input">
+            <label htmlFor="username">User Name</label>
+            <Field className="field" type="text" id="username" name="username" />
             <ErrorMessage name="userName" component="div" />
           </div>
 
-          <div>
-            <label htmlFor="email">Email</label>
-            <Field type="email" id="email" name="email" />
+          <div className="input">
+            <label htmlFor="email">E-mail</label>
+            <Field className="field" type="email" id="email" name="email" />
             <ErrorMessage name="email" component="div" />
           </div>
 
-          <div>
+          <div className="input">
             <label htmlFor="password">Password</label>
-            <Field type="password" id="password" name="password" />
+            <Field className="field" type="password" id="password" name="password" />
             <ErrorMessage name="password" component="div" />
           </div>
 
-          <button type="submit">Register</button>
+          <button className="Register-button" type="submit">Register</button>
         </Form>
       </Formik>
     </div>

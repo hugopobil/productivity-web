@@ -3,7 +3,6 @@
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    width: 100%;
     justify-content: center;
     color: white;
     border-color: #1400FF;
@@ -13,7 +12,7 @@
 }
 
 .Form {
-    width: 80%;
+    width: 100%;
     height: 400px;
     background-color: white;
     border-color: #1400FF;
@@ -25,7 +24,7 @@
 }
 
 .Form input {
-    width: 90%;
+    width: 100%;
     height: 41px;
     border-color: #1400FF;
     border-width: medium;
@@ -47,6 +46,23 @@
     text-decoration: none;
     margin: 12px auto 0;
 } 
+
+.Form .Register-button {
+    height: 32px;
+    width: 107px;
+    appearance: none;
+    outline: none; 
+    background-color: white;
+    color:#1400FF;
+    border-color: #1400FF;
+    border-width: medium;
+    border-style: solid;
+    border-radius: 0;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    text-decoration: none;
+    margin: 12px auto 0;
+}
 
 .Login {
     height: 260px; 
