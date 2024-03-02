@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { getPosts, likePost } from "../services/PostService";
 import AuthContext from "../contexts/AuthContext";
-import "./posts.css";
+import "./Posts.css";
 import { createComment, deleteComment as deleteCommentService } from "../services/PostService";
 
 const Posts = () => {
@@ -118,7 +118,11 @@ const Posts = () => {
                       <p>
                         <strong>{comment.user.username}</strong>{" "}{comment.content}
                       </p>
+
+                      {user && comment.user.id === user.id && 
                       <button className="delete-button" onClick={() => deleteComment(comment.id)}>Detele</button>
+                      }
+                      
                     </div>
                   );
                 })}
