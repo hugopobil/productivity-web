@@ -70,7 +70,7 @@ const Login = () => {
             />
             {touched.password && errors.password && <div>{errors.password}</div>}
           </div>
-          <button clasName="Login-button" type="submit" disabled={!isValid}>
+          <button className="Login-button" type="submit" disabled={!isValid}>
             Login
           </button>
           

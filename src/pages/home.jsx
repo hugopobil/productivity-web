@@ -1,4 +1,3 @@
-import TitleBar from '../components/TitleBar';
 import './Home.css'
 import Button from '../components/Button';
 
