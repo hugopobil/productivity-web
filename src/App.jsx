@@ -18,7 +18,7 @@ function App() {
 
       <div>
         <Routes>
-          <Route path="/" element={<Posts />} />
+          <Route path="/" element={<ProtectedRoute><Posts/></ProtectedRoute>} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/posts" element={<ProtectedRoute><Posts/></ProtectedRoute>} />

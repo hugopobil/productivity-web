@@ -40,7 +40,8 @@ const Posts = () => {
   };
 
   const handleCommentSubmit = (postId, content) => {
-    createComment(postId, { content }).then((response) => {
+    createComment(postId, { content: content, user: user.id })
+    .then((response) => {
       fetchPosts();
     });
   }
@@ -54,7 +55,7 @@ const Posts = () => {
       {user &&
         posts.map((post_returned) => {
           const isLiked = post_returned.likes.some((like) => {
-            return like.user.id === user.id;
+            return like.user?.id === user.id;
           });
 
           // cambiar por corazon en rojo o sin relleno
@@ -81,7 +82,7 @@ const Posts = () => {
               {post_returned.likes.map((like) => {
                 return (
                   <ul className="posts-likes-list">
-                    <li key={like.user.id}>{like.user.username}</li>
+                    <li key={like.user?.id}>{like.user?.username}</li>
                   </ul>
                 );
               })}
@@ -137,7 +138,7 @@ const Posts = () => {
                           handleCommentSubmit(post_returned.id, commentText)
                         }
                       >
-                        Comment your comment
+                        Submit
                       </button>
                     </div>
                 }
@@ -146,7 +147,8 @@ const Posts = () => {
                 {post_returned.comments.map((comment) => {
                   return (
                     <div className="comments">
-                      <p>{comment.content}</p>
+                      <p><strong>{comment.user.username}</strong>  {comment.content}</p>
+                      {/* <button onClick={deteleComment}>Detele</button> */}
                     </div>
                   );
                 })}

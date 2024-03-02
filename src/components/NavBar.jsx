@@ -34,11 +34,11 @@ const Navbar = () => {
             Posts
           </Link>
         </li> */}
-        <li className="navbar-item">
+        {user && <li className="navbar-item">
           <Link to="/posts/create" className="navbar__link">
             Create Post
           </Link>
-        </li>
+        </li>}
 
         {user && (
           <li className="navbar-item">
