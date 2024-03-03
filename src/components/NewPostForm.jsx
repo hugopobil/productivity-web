@@ -83,7 +83,7 @@ const NewPostForm = () => {
             {touched.content && errors.content}
         </div>
         <div>
-          <label htmlFor="location">Content:</label>
+          <label htmlFor="location">Location:</label>
           <input  
             name="location"
             type="text"
