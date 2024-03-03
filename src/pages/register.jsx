@@ -6,10 +6,10 @@ import Button from "../components/Button";
 import "./Register.css"
 
 const userSchema = object({
-  username: string().required('Required field'),
-  email: string().email('Enter a valid email').required('Required field'),
-  password: string().min(8, 'Password of ar least 8 characters').required('Required field'),
-  image: mixed().required('Required field')
+  username: string().required('User Name required'),
+  email: string().email('Enter a valid email').required('E-mail required'),
+  password: string().min(8, 'Password of ar least 8 characters').required('Password required'),
+  image: mixed().required('Photo required')
 });
 
 const Register = () => {
@@ -43,8 +43,9 @@ const Register = () => {
       <div className="Registation-form">
       <h1>Register</h1>
         <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Add your photo</label>
-          <div><input
+          <div>
+          <label htmlFor="image">Add your photo</label>
+          <input
             name="image"
             type="file"
             onChange={(event) => {

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./NavBar.css";
+import "./Navbar.css";
 import AuthContext from "../contexts/AuthContext";
 import { useContext } from "react";
 import Button from "../components/Button";
