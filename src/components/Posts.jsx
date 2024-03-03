@@ -21,6 +21,7 @@ const Posts = () => {
 
   const fetchPosts = () => {
     getPosts()
+      console.log(response)
       .then((response) => {
         setPosts(response);
       })
