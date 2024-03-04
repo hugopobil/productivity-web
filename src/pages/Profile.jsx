@@ -13,9 +13,13 @@ const Profile = (user_link) => {
   const numPosts = userPosts.length;
 
   useEffect(() => {
-    getUserPosts(user_link.id ? user_link.id : user.id).then((response) => {
-      setUserPosts(response);
-    });
+    getUserPosts(user_link.id ? user_link.id : user.id)
+      .then((response) => {
+        
+        // Order response by field CreatedAt
+        response.sort((a, b) => b.createdAt - a.createdAt);
+        setUserPosts(response);
+      });
   }, []);
   return (
     <div className="profile-main-page">
