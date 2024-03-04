@@ -2,21 +2,21 @@ import AuthContext from "../contexts/AuthContext";
 import { useContext, useEffect, useState } from "react";
 import { getUserPosts } from "../services/PostService";
 import { Link } from "react-router-dom";
-import "./Profile.css";
+import "./profile.css";
 import PostsByUser from "../components/PostsByUser";
 
-const Profile = () => {
+const Profile = (user_link) => {
   const { user } = useContext(AuthContext);
   const [userPosts, setUserPosts] = useState([]);
 
   const numPosts = userPosts.length;
 
   useEffect(() => {
-    getUserPosts(user.id).then((response) => {
+    getUserPosts(user_link.id ? user_link.id : user.id).then((response) => {
       setUserPosts(response);
     });
+    
   }, []);
-
   return (
     <div className="profile-main-page">
       <div className="profile-user-main-info">

@@ -15,7 +15,7 @@ const TitleBar = () => {
         </h1>
       {user && (
         <div className="TitleBar-item">
-          <Link to="/profile" className="TitleBar__link">
+          <Link to="/profile/me" className="TitleBar__link">
             Profile
           </Link>
         </div>

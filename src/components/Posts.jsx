@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { getPosts, likePost } from "../services/PostService";
 import AuthContext from "../contexts/AuthContext";
-import "./Posts.css";
+import "./posts.css";
 import { createComment, deleteComment as deleteCommentService } from "../services/PostService";
+import { Link } from "react-router-dom";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -75,13 +76,19 @@ const Posts = () => {
             <div key={post_returned.id} className="post-container">
               <div className="posts-user-info">
                 <img src={post_returned.user.image} alt="" />
-                <p className="by-user"><strong>{post_returned.user.username}</strong></p>
+                <p className="by-user">
+                  <strong>
+                    <Link to={`/profile/${post_returned.user.id}`}>
+                      {post_returned.user.username}
+                    </Link>
+                  </strong>
+                </p>
               </div>
               <p className="posts-location">
                 <strong>{post_returned.location}</strong>
               </p>
               <img src={post_returned.image} alt={post_returned.title} />
-              <div className="post-likes">Supports achieved: {post_returned.likes ? post_returned.likes.length : 0} people</div>
+              <div className="post-likes">Supports achieved: {post_returned.likes ? post_returned.likes.length : 0}</div>
               <h2 className="posts-title">{post_returned.title}</h2>
               <p className="posts-content">{post_returned.content}</p>
               
