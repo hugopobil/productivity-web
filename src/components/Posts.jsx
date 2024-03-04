@@ -75,14 +75,18 @@ const Posts = () => {
           return (
             <div key={post_returned.id} className="post-container">
               <div className="posts-user-info">
+                <div className="posted-by-user-image">
                 <img src={post_returned.user.image} alt="" />
-                <p className="by-user">
+                <div className="by-user">
                   <strong>
                     <Link to={`/profile/${post_returned.user.id}`}>
                       {post_returned.user.username}
                     </Link>
                   </strong>
-                </p>
+                </div>
+                </div>
+                
+                <p className="post-date">{new Date(post_returned.createdAt).toLocaleDateString()}</p>
               </div>
               <p className="posts-location">
                 <strong>{post_returned.location}</strong>

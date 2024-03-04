@@ -41,26 +41,32 @@ const NewPostForm = () => {
     validationSchema: newPostSchema,
     validateOnBlur: true,
     validateOnMount: true,
-  }) 
+  })
+  
 
   return (
     <div className="newPost-container">
-      <div className="newPost-form">
+      
       <h1>New Post</h1>
+      <div className="newPost-form">
+      
         <form onSubmit={handleSubmit}>
-        <div>
+        <div className="form-input">
           <label htmlFor="image">Add photo</label>
+          <br />
           <input
             name="image"
             type="file"
+            className="custom-upload-button"
             onChange={(event) => {
               setFieldValue("image", event.currentTarget.files[0]);
             }}
             onBlur={handleBlur}
           />
+          <br />
           {touched.image && errors.image}
         </div>
-        <div>
+        <div className="form-input">
           <label htmlFor="title">Title:</label>
           <input  
             name="title"
@@ -71,18 +77,20 @@ const NewPostForm = () => {
             onBlur={handleBlur} />
             {touched.title && errors.title}
         </div>
-        <div>
+        <div className="form-input">
           <label htmlFor="content">Content:</label>
-          <input  
+          <br />
+          <textarea  
             name="content"
             type="text"
             placeholder="Project 1"
             value={values.content}
             onChange={handleChange}
             onBlur={handleBlur} />
-            {touched.content && errors.content}
+            {touched.content && 
+            errors.content}
         </div>
-        <div>
+        <div className="form-input">
           <label htmlFor="location">Location:</label>
           <input  
             name="location"

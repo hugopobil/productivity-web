@@ -10,6 +10,7 @@ import NewPostForm from "./components/NewPostForm";
 import { useContext } from "react";
 import AuthContext from "./contexts/AuthContext";
 // import Activation from "./components/Activation";
+import Pomodoro from './pages/Pomodoro';
 
 function App() {
 
@@ -25,9 +26,10 @@ function App() {
           <Route path="/" element={<ProtectedRoute><Posts/></ProtectedRoute>} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/posts" element={<ProtectedRoute><Posts/></ProtectedRoute>} />
+          {/* <Route path="/posts" element={<ProtectedRoute><Posts/></ProtectedRoute>} /> */}
           <Route path="/profile/me" element={<ProtectedRoute><Profile user={user}/></ProtectedRoute>}/>
           <Route path="/posts/create" element={<ProtectedRoute><NewPostForm/></ProtectedRoute>} />
+          <Route path="/pomodoro" element={<ProtectedRoute><Pomodoro/></ProtectedRoute>} />
         </Routes>
 
         {/* <UtilsBar /> */}

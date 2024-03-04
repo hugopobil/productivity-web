@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./navbar.css";
+import "./NavBar.css";
 import AuthContext from "../contexts/AuthContext";
 import { useContext } from "react";
 import Button from "../components/Button";
@@ -56,11 +56,7 @@ const Navbar = () => {
           </li>
         )}
 
-        {user && (
-          <li className="navbar-item">
-            <Button className="logout-button" onClick={logout}>Logout</Button>
-          </li>
-        )}
+      
       </ul>
 
       {/* {user && <Link to='/profile'>{user.username}</Link>} */}

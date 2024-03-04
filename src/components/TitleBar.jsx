@@ -8,19 +8,23 @@ const TitleBar = () => {
 
   return (
     <div className="TitleBar">
-      <h1>
-        <Link to="/" className="TitleBar__link">
-        ACHIEVE IT
-        </Link>
-        </h1>
-        <span className="icon-bubbles2"></span>
       {user && (
         <div className="TitleBar-item">
           <Link to="/profile/me" className="TitleBar__link">
-            Profile
+            <img
+              className="profile-titlebar-image"
+              src={user.image}
+              alt="userImage"
+            />
           </Link>
         </div>
       )}
+      <h1>
+        <Link to="/" className="TitleBar__link">
+          ACHIEVE IT
+        </Link>
+      </h1>
+      <span className="icon-bubbles2"></span>
     </div>
   );
 };
