@@ -2,7 +2,7 @@ import AuthContext from "../contexts/AuthContext";
 import { useContext, useEffect, useState } from "react";
 import { getUserPosts } from "../services/PostService";
 import { Link } from "react-router-dom";
-import "./Profile.css";
+import "./profile.css";
 import PostsByUser from "../components/PostsByUser";
 
 const Profile = (user_link) => {

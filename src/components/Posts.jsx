@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { getPosts, likePost } from "../services/PostService";
 import AuthContext from "../contexts/AuthContext";
-import "./Posts.css";
+import "./posts.css";
 import { createComment, deleteComment as deleteCommentService } from "../services/PostService";
 import { Link } from "react-router-dom";
 
