@@ -13,6 +13,7 @@ const TitleBar = () => {
         ACHIEVE IT
         </Link>
         </h1>
+        <span className="icon-bubbles2"></span>
       {user && (
         <div className="TitleBar-item">
           <Link to="/profile/me" className="TitleBar__link">

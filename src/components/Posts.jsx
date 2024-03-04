@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { getPosts, likePost } from "../services/PostService";
 import AuthContext from "../contexts/AuthContext";
-import "./posts.css";
+import "./Posts.css";
 import { createComment, deleteComment as deleteCommentService } from "../services/PostService";
 import { Link } from "react-router-dom";
 
@@ -11,7 +11,6 @@ const Posts = () => {
   const { user } = useContext(AuthContext);
   const [comment, setComment] = useState(false);
   
-
   console.log(user);
 
   const handleLike = (postId) => {
@@ -22,7 +21,6 @@ const Posts = () => {
 
   const fetchPosts = () => {
     getPosts()
-      console.log(response)
       .then((response) => {
         setPosts(response);
       })
@@ -60,6 +58,7 @@ const Posts = () => {
   }, []);
 
   return (
+    <>
     <div className="posts-main-page">
       {user &&
         posts.map((post_returned) => {
@@ -156,7 +155,10 @@ const Posts = () => {
             </div>
           );
         })}
-    </div>
+
+    </div> 
+
+    </>
   );
 };
 
