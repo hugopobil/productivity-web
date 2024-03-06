@@ -34,7 +34,7 @@ const Profile = (props) => {
       });
     }
 
-  }, []);
+  }, [userId, user.id]);
   return (
     <div className="profile-main-page">
       <div className="profile-user-main-info">
