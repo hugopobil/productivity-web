@@ -1,32 +1,46 @@
 import AuthContext from "../contexts/AuthContext";
 import { useContext, useEffect, useState } from "react";
 import { getUserPosts } from "../services/PostService";
-import { Link } from "react-router-dom";
 import "./profile.css";
 import PostsByUser from "../components/PostsByUser";
 import Button from "../components/Button";
+import { useParams } from "react-router-dom";
+import { getUserByID } from "../services/UserService";
 
-const Profile = (user_link) => {
+const Profile = (props) => {
+  const userId = useParams();
   const { user, logout } = useContext(AuthContext);
   const [userPosts, setUserPosts] = useState([]);
+  const [userProfile, setUserProfile] = useState({});
 
   const numPosts = userPosts.length;
 
   useEffect(() => {
-    getUserPosts(user_link.id ? user_link.id : user.id)
-      .then((response) => {
-        
-        // Order response by field CreatedAt
+    if (userId) {
+      getUserPosts(userId.id).then((response) => {
         response.sort((a, b) => b.createdAt - a.createdAt);
         setUserPosts(response);
       });
+      getUserByID(userId.id).then((response) => {
+        setUserProfile(response);
+        console.log(response);
+      });
+    }
+
+    if (!userId) {
+      getUserPosts(user.id).then((response) => {
+        response.sort((a, b) => b.createdAt - a.createdAt);
+        setUserPosts(response);
+      });
+    }
+
   }, []);
   return (
     <div className="profile-main-page">
       <div className="profile-user-main-info">
-        <img src={user.image} alt="userImage" />
+        <img src={userId ? userProfile.image : user.image} alt="userImage" />
         <div>
-          <h2>{user.username}</h2>
+          <h2>{userId ? userProfile.username : user.username}</h2>
           {user && (
             <li className="navbar-item">
               <Button className="logout-button" onClick={logout}>

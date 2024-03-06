@@ -10,7 +10,7 @@ const TitleBar = () => {
     <div className="TitleBar">
       {user && (
         <div className="TitleBar-item">
-          <Link to="/profile/me" className="TitleBar__link">
+          <Link to={`/profile/${user.id}`} className="TitleBar__link">
             <img
               className="profile-titlebar-image"
               src={user.image}

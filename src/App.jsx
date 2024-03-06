@@ -26,8 +26,9 @@ function App() {
           <Route path="/" element={<ProtectedRoute><Posts/></ProtectedRoute>} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          {/* <Route path="/posts" element={<ProtectedRoute><Posts/></ProtectedRoute>} /> */}
-          <Route path="/profile/me" element={<ProtectedRoute><Profile user={user}/></ProtectedRoute>}/>
+          <Route path="/posts" element={<ProtectedRoute><Posts/></ProtectedRoute>} />
+          <Route path="/profile/:id" element={<ProtectedRoute><Profile /></ProtectedRoute>}/>
+          <Route path="/profile/me" element={<ProtectedRoute><Profile user={user} /></ProtectedRoute>}/>
           <Route path="/posts/create" element={<ProtectedRoute><NewPostForm/></ProtectedRoute>} />
           <Route path="/pomodoro" element={<ProtectedRoute><Pomodoro/></ProtectedRoute>} />
         </Routes>

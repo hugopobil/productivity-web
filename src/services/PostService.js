@@ -26,3 +26,7 @@ export const deleteComment = (commentId) => {
     return http.delete(`/posts/${commentId}`)
 }
 
+export const getUserProfile = (userId) => {
+    return http.get(`/profile/${userId}`)
+}
+
