@@ -9,8 +9,9 @@ import Profile from "./pages/Profile";
 import NewPostForm from "./components/NewPostForm";
 import { useContext } from "react";
 import AuthContext from "./contexts/AuthContext";
-// import Activation from "./components/Activation";
+import Activation from "./components/Activation";
 import Pomodoro from './pages/Pomodoro';
+import ChatList from "./pages/ChatList";
 
 function App() {
 
@@ -31,6 +32,8 @@ function App() {
           <Route path="/profile/me" element={<ProtectedRoute><Profile user={user} /></ProtectedRoute>}/>
           <Route path="/posts/create" element={<ProtectedRoute><NewPostForm/></ProtectedRoute>} />
           <Route path="/pomodoro" element={<ProtectedRoute><Pomodoro/></ProtectedRoute>} />
+          <Route path="/chats/me" element={<ProtectedRoute><ChatList/></ProtectedRoute>}/>
+          <Route path="/activate/:token" element={<Activation/>}/>
         </Routes>
 
         {/* <UtilsBar /> */}

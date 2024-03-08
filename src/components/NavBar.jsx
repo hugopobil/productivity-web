@@ -48,7 +48,7 @@ const Navbar = () => {
 
         {user && (
           <li className="navbar-item">
-            <Link to="/messages" className="navbar__link">
+            <Link to="/chats/me" className="navbar__link">
             <span className="icon-bubbles2"></span>
             </Link>
           </li>

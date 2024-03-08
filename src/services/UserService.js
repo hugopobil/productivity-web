@@ -14,6 +14,7 @@ export const getCurrentUser = () => {
     return http.get('/users/me')
 } 
 
-export const activateUser = () => {
-    return http.get('/activate/:token')
+export const activateUser = (token) => {
+    return http.get(`/activate/${token}`)
 }
+
