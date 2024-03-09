@@ -6,8 +6,8 @@ export const getMessagebyId = (chatId) => {
     return http.get(`/chats/${chatId}/messages`)
 }
 
-export const createMessage = (chatId) => {
-    return http.post(`/chats/${chatId}/messages/create`)
+export const createMessage = (chatId, content) => {
+    return http.post(`/chats/${chatId}/messages/create`,  { content })
 }
 
 export const allChats = () => {

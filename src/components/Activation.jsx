@@ -5,6 +5,7 @@ import { activateUser } from '../services/UserService';
 const Activation = () => {
     const { token } = useParams();
     const navigate = useNavigate();
+    
     useEffect(() => {
         activateUser(token)
             .then(() => {

@@ -7,16 +7,14 @@ const ChatList = () => {
   const [chats, setChats] = useState([]);
 
   useEffect(() => {
-    fetchChats();
-  }, []);
-
-  const fetchChats = () => {
     allChats()
       .then((response) => {
         setChats(response);
       })
       .catch((error) => console.error(error));
-  };
+  }, []);
+
+  console.log("Chats:", chats);
 
   return (
     <div className="chat-list">
@@ -25,10 +23,9 @@ const ChatList = () => {
         {chats.map((chat) => (
           <li key={chat.id}>
             <div className="chat-info">
-              <img src={chat.user.image} alt={chat.user.name} />
-              <div className="user-info">
-                <h3>{chat.user.name}</h3>
-                {/* Puedes añadir más información del chat si lo necesitas */}
+            <img src={chat.users[0].image} alt={chat.users[0].username} />
+          <div className="user-info">
+            <h3>{chat.users[0].username}</h3>
               </div>
             </div>
           </li>
