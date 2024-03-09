@@ -6,6 +6,7 @@ import "./ChatList.css";
 
 const ChatList = () => {
   const [chats, setChats] = useState([]);
+  const { user: currentUser } = useContext(AuthContext)
 
   useEffect(() => {
     allChats()
@@ -26,10 +27,14 @@ const ChatList = () => {
         {chats.map((chat) => (
           <div key={chat.id}>
             <Link to={`/chats/${chat.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-            <div className="Chat-info">
-            <img src={chat.users[0].image} alt={chat.users[0].username} />
-              <h3>{chat.users[0].username}</h3>
-            </div>
+            {chat.users.map(user => (
+              user.id !== currentUser.id && (
+                <div className="Chat-info">
+                <img src={user.image} alt={user.username} />
+                <h3>{user.username}</h3>
+                </div>
+              )
+            ))}
             </Link>
           </div>
         ))}
