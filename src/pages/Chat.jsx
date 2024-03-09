@@ -2,6 +2,7 @@ import { useState, useEffect, useContext, useCallback } from 'react';
 import { getMessagebyId, createMessage, getChat } from '../services/ChatService.js';
 import { useParams } from 'react-router-dom';
 import AuthContext from '../contexts/AuthContext.jsx';
+import "./Chat.css"
 
 
 const Chat = () => {
@@ -43,24 +44,28 @@ const Chat = () => {
     };
 
     return (
-        <div>
-            <h2>Chat with </h2>
-            <h3>{chat ? `Chat ID: ${chat._id}` : 'Loading...'}</h3>
-            <ul>
+        <div className="Chat-container">
+            <h2>Chat with {chat?.users[0].username}</h2>
+            {/* <h3>{chat ? `Chat ID: ${chat._id}` : 'Loading...'}</h3> */}
+            <div className="Chat-messages">
                 {chat?.messages.map(message => {
                     const isMe = isUserLogged(message.user)
-                    console.log(isMe)
+
                     return (
-                    <li key={message._id} className={`${isMe  ? 'right' : 'left' }`}>{message.content}</li>
+                        <div className={`Message-content Message-content-${isMe  ? 'right' : 'left' }`} key={message._id}>
+                            <div className={`Message Message-${isMe  ? 'right' : 'left' }`}>
+                                {message.content}
+                            </div>
+                        </div>
                 )})}
-            </ul>
-            <div>
-                <input
+            </div>
+            <div className="Input">
+                <input className="Text-input"
                     type="text"
                     value={newMessageContent}
                     onChange={e => setNewMessageContent(e.target.value)}
                 />
-                <button onClick={handleSendMessage}>Send</button>
+                <button onClick={handleSendMessage} className="Button-send">Send</button>
             </div>
         </div>
     );
