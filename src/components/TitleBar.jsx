@@ -24,7 +24,9 @@ const TitleBar = () => {
           ACHIEVE IT
         </Link>
       </h1>
-      <span className="icon-bubbles2"></span>
+      <Link to={"/chats/me"} className="TitleBar__link">
+        <span className="icon-bubbles2"></span>
+      </Link>
     </div>
   );
 };

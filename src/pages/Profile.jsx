@@ -33,7 +33,6 @@ const Profile = (props) => {
         setUserPosts(response);
       });
     }
-
   }, [userId, user.id]);
   return (
     <div className="profile-main-page">
@@ -41,13 +40,29 @@ const Profile = (props) => {
         <img src={userId ? userProfile.image : user.image} alt="userImage" />
         <div>
           <h2>{userId ? userProfile.username : user.username}</h2>
-          {user && (
-            <li className="navbar-item">
-              <Button className="logout-button" onClick={logout}>
-                Logout
-              </Button>
-            </li>
-          )}
+          <div className="userProfileButtons">
+            {user && (
+              <li className="navbar-item">
+                <Button className="profile-button" onClick={logout}>
+                  Logout
+                </Button>
+              </li>
+            )}
+            {user && (
+              <li className="navbar-item">
+                <Button className="profile-button" onClick={""}>
+                  Message
+                </Button>
+              </li>
+            )}
+            {/* {user && (
+              <li className="navbar-item">
+                <Button className="profile-button" onClick={""}>
+                  Message
+                </Button>
+              </li>
+            )} */}
+          </div>
         </div>
       </div>
       <div className="posts-info">

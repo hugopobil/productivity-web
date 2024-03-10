@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 import "./NewPostForm.css"
 
+
 const newPostSchema = object({
   title: string().required('Tittle required'),
   content: string().required('Content rquired'),
@@ -24,6 +25,7 @@ const NewPostForm = () => {
       content: '',
       location: '',
       image: '',
+      duraiton: '',
       user: user.id,
     }, 
     onSubmit: (values) => {
@@ -76,6 +78,17 @@ const NewPostForm = () => {
             onChange={handleChange}
             onBlur={handleBlur} />
             {touched.title && errors.title}
+        </div>
+        <div className="form-input">
+          <label htmlFor="title">Score from Pomodoro:</label>
+          <input  
+            name="duration"
+            type="number"
+            placeholder="Project 1"
+            value={values.duration}
+            onChange={handleChange}
+            onBlur={handleBlur} />
+            {touched.duraiton && errors.title}
         </div>
         <div className="form-input">
           <label htmlFor="content">Content:</label>

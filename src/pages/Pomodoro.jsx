@@ -48,7 +48,7 @@ const Pomodoro = () => {
     return (
         <div className="pomodoro-page">
             <h1>Counter: {formatTime(count)}</h1>
-            <div>
+            <div className="pomodoro-buttons-controls">
                 <button
                     className="pomodoro-button"
                     onClick={handleStart}
@@ -70,7 +70,7 @@ const Pomodoro = () => {
 
             {stopPressed && (
                 <h2 className="productivity-message-new-post">
-                    Add your productivity to a new post!
+                    Add your productivity to a new post! Your Score is {count}
                 </h2>
             )}
 

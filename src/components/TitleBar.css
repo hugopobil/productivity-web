@@ -10,7 +10,7 @@
     border-color: #1400FF;
     border-width: medium;
     border-style: solid;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -29,13 +29,13 @@
 .TitleBar-item {
     color: #1400FF !important;
     text-decoration: none;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: 10px;
 }
 
 .TitleBar__link {
     text-decoration: none;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color:#1400FF;
 }
 
