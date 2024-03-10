@@ -6,6 +6,7 @@ import PostsByUser from "../components/PostsByUser";
 import Button from "../components/Button";
 import { useParams } from "react-router-dom";
 import { getUserByID } from "../services/UserService";
+import { createChat } from "../services/ChatService";
 
 const Profile = (props) => {
   const userId = useParams();
