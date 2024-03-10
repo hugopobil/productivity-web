@@ -1,0 +1,85 @@
+.Chat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    /* justify-content: center; */
+    color: #1400FF;
+    border-color: #1400FF;
+    border-width: medium;
+    border-style: solid;
+    padding-top: 94px;
+    padding-bottom: 64px;
+} 
+
+.Chat-messages {
+    list-style-type: none;
+    width: 100%;
+    padding-inline-start: 15px;
+    padding-inline-end: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+
+.Message-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.Message-content-right {
+    justify-content: flex-end;
+}
+
+.Message-content-left {
+    justify-content: flex-start;
+}
+
+.Message-right {
+    background-color: green;
+    border-radius: 20px;
+}
+
+.Message-left {
+    background-color: blue;
+    border-radius: 20px;
+}
+
+.Message {
+    margin-bottom: 5px;
+    padding: 10px;
+    color: white;
+}
+
+.Input {
+    bottom: 70px;
+    position: fixed;
+    width: 100%;
+    padding: 15px 10px 15px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border-top: #1400FF;
+    border-top-style: solid;
+    border-top-width: medium;
+}
+
+.Input .Text-input {
+    border-radius: 20px;
+    border-color: #1400FF;
+    border-width: medium;
+    border-style: solid;
+    padding: 5px;
+    width: 70%;
+} 
+
+.Input .Button-send {
+    border-radius: 20px;
+    padding: 5px;
+    border-width: medium;
+    border-color: #1400FF;
+    background-color: #1400FF;
+    color: white;
+} 
