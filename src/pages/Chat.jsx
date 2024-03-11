@@ -44,17 +44,18 @@ const Chat = () => {
             });
     };
 
+    const otherUser = chat?.users.find(user => user.id !== currentUser.id)
+
     return (
         <div className="Chat-container">
-            {chat?.users.map(user => (
-              user.id !== currentUser.id && (
+            {otherUser && (
                 <div className="Chat-with">
-                <Link to={`/profile/${user.id}`}>
-                <img src={user.image} alt={user.username} />
-                </Link>
-                <h2>{user.username}</h2>
+                    <Link to={`/profile/${otherUser.id}`}>
+                    <img src={otherUser.image} alt={otherUser.username} />
+                    </Link>
+                    <h2>{otherUser.username}</h2>
                 </div>
-              )))}
+            )}
             {/* <h2>Chat with {chat?.users[0].username}</h2> */}
             {/* <h3>{chat ? `Chat ID: ${chat._id}` : 'Loading...'}</h3> */}
             <div className="Chat-messages">

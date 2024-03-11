@@ -6,7 +6,6 @@ import PostsByUser from "../components/PostsByUser";
 import Button from "../components/Button";
 import { useParams } from "react-router-dom";
 import { getUserByID } from "../services/UserService";
-import { createChat } from "../services/ChatService";
 
 const Profile = (props) => {
   const userId = useParams();
@@ -51,7 +50,7 @@ const Profile = (props) => {
             )}
             {user && (
               <li className="navbar-item">
-                <Button className="profile-button" onClick={""}>
+                <Button className="profile-button" linkTo={`/chats/create/${userId.id}`}>
                   Message
                 </Button>
               </li>
