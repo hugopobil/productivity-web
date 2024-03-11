@@ -12,8 +12,40 @@ const Profile = (props) => {
   const { user, logout } = useContext(AuthContext);
   const [userPosts, setUserPosts] = useState([]);
   const [userProfile, setUserProfile] = useState({});
-
+  const [totalCount, setTotalCount] = useState(0);
   const numPosts = userPosts.length;
+  const userIsSame = user.id === userId.id;
+
+
+useEffect(() => {
+  if (userId) {
+    getUserPosts(userId.id).then((response) => {
+      response.sort((a, b) => b.createdAt - a.createdAt);
+      addDurationAndSetTotalCount(response);
+    });
+    getUserByID(userId.id).then((response) => {
+      setUserProfile(response);
+      console.log(response);
+    });
+  }
+
+  if (!userId) {
+    getUserPosts(user.id).then((response) => {
+      response.sort((a, b) => b.createdAt - a.createdAt);
+      addDurationAndSetTotalCount(response);
+    });
+  }
+
+  const addDurationAndSetTotalCount = (response) => {
+    let count = 0;
+    response.forEach((post) => {
+      count += post.duration;
+    });
+    setTotalCount(count);
+    setUserPosts(response);
+  }
+}, [userId, user.id]);
+  
 
   useEffect(() => {
     if (userId) {
@@ -34,6 +66,7 @@ const Profile = (props) => {
       });
     }
   }, [userId, user.id]);
+
   return (
     <div className="profile-main-page">
       <div className="profile-user-main-info">
@@ -41,7 +74,7 @@ const Profile = (props) => {
         <div>
           <h2>{userId ? userProfile.username : user.username}</h2>
           <div className="userProfileButtons">
-            {user && (
+            {userIsSame && (
               <li className="navbar-item">
                 <Button className="profile-button" onClick={logout}>
                   Logout

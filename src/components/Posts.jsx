@@ -65,8 +65,8 @@ const Posts = () => {
     alert("Path has been copied to the clipboard");
   };
 
-  const handleFollow = (postId) => {
-    follow(postId).then((response) => {
+  const handleFollow = (userId, followerId) => {
+    follow(userId, followerId).then((response) => {
       console.log(response);
       fetchPosts();
     });
@@ -104,7 +104,7 @@ const Posts = () => {
                       </strong>
                       <button
                     className="follow-button"
-                    onClick={() => handleFollow(post_returned.id)}
+                    onClick={() => handleFollow(user.id, post_returned.id)}
                     style={buttonStyle}
                   >
                     Follow
