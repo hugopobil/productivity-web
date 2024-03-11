@@ -50,7 +50,7 @@ const Profile = (props) => {
             )}
             {user && (
               <li className="navbar-item">
-                <Button className="profile-button" onClick={""}>
+                <Button className="profile-button" linkTo={`/chats/create/${userId.id}`}>
                   Message
                 </Button>
               </li>
