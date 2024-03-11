@@ -19,9 +19,13 @@ export const getChat = (chatId) => {
 }
 
 export const createChat = (userId) => {
-    return http.post(`/chats/${userId}`)
+    return http.post(`/chats/create/${userId}`)
 }
 
 export const deleteChat = (chatId) => {
     return http.delete(`/chats/${chatId}/delete`)
+}
+
+export const getChatByUsers = (userId) => {
+    return http.get(`/chats/getChatByUsers/${userId}`)
 }

@@ -13,6 +13,7 @@ import Activation from "./components/Activation";
 import Pomodoro from './pages/Pomodoro';
 import ChatList from "./pages/ChatList";
 import Chat from "./pages/Chat";
+import NewChat from "./components/NewChat";
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
           <Route path="/chats/me" element={<ProtectedRoute><ChatList/></ProtectedRoute>}/>
           <Route path="/activate/:token" element={<Activation/>}/>
           <Route path="/chats/:chatId" element={<ProtectedRoute><Chat/></ProtectedRoute>}/>
+          <Route path="/chats/create/:userId" element={<ProtectedRoute><NewChat/></ProtectedRoute>}/>
         </Routes>
 
         {/* <UtilsBar /> */}
