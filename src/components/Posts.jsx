@@ -3,7 +3,7 @@ import { getPosts, likePost } from "../services/PostService";
 import AuthContext from "../contexts/AuthContext";
 import "./posts.css";
 import {
-  createComment,
+  createComment, follow,
   deleteComment as deleteCommentService,
 } from "../services/PostService";
 import { Link } from "react-router-dom";
@@ -12,7 +12,6 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [commentText, setCommentText] = useState("");
   const { user } = useContext(AuthContext);
-  const [comment, setComment] = useState(false);
 
   console.log(user);
 
@@ -66,6 +65,13 @@ const Posts = () => {
     alert("Path has been copied to the clipboard");
   };
 
+  const handleFollow = (postId) => {
+    follow(postId).then((response) => {
+      console.log(response);
+      fetchPosts();
+    });
+  };
+
   useEffect(() => {
     fetchPosts();
   }, []);
@@ -96,6 +102,13 @@ const Posts = () => {
                           {post_returned.user.username}
                         </Link>
                       </strong>
+                      <button
+                    className="follow-button"
+                    onClick={() => handleFollow(post_returned.id)}
+                    style={buttonStyle}
+                  >
+                    Follow
+                  </button>
                     </div>
                   </div>
 

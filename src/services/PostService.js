@@ -30,3 +30,6 @@ export const getUserProfile = (userId) => {
     return http.get(`/profile/${userId}`)
 }
 
+export const follow = (userId) => {
+    return http.post(`/follow/${userId}`)
+}
