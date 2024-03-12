@@ -56,7 +56,7 @@ const Navbar = () => {
 
         {user && (
           <li className="navbar-item">
-            <Link to="/pomodoro" className="navbar__link">
+            <Link to="/chrono" className="navbar__link">
               <span className="icon-equalizer"></span>
             </Link>
           </li>

@@ -1,0 +1,12 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    color: white;
+    border-color: #1400FF;
+    border-width: medium;
+    border-style: solid;
+    padding: 0 12px;
+}

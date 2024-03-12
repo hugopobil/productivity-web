@@ -1,17 +1,19 @@
-import React from 'react';
-import Button from './Button';
-import { useState } from 'react';
+import { useContext, useState } from 'react'
+import { SettingsContext } from '../contexts/SettingsContext'
 
 const SetPomodoro = () => {
+
     const [newTimer, setNewTimer] = useState({
-        work: 0.3,
-        short: 0.2,
-        long: 1,
+        work: 0.2,
+        short: 0.1,
+        long: 0.5,
         active: 'work'
     })
 
-    const handleChange = e => {
-        const {name, value} = e.target 
+    const {updateExecute} = useContext(SettingsContext)
+
+    const handleChange = input => {
+        const {name, value} = input.target
         switch (name) {
             case 'work':
                 setNewTimer({
@@ -19,26 +21,36 @@ const SetPomodoro = () => {
                     work: parseInt(value)
                 })
                 break;
-            default:
+            case 'shortBreak':
+                setNewTimer({
+                    ...newTimer,
+                    short: parseInt(value)
+                })
+                break;
+            case 'longBreak':
+                setNewTimer({
+                    ...newTimer,
+                    long: parseInt(value)
+                })
                 break;
         }
-
     }
-
+    const handleSubmit = e => {
+        e.preventDefault()
+        updateExecute(newTimer)
+    }
     return (
         <div className="form-container">
-            <form noValidate>
+            <form noValidate onSubmit={handleSubmit}>
                 <div className="input-wrapper">
-                    <input className="input" name="work" onChange={handleChange} value={}/>
-                    <input className="input" name="shortBrear" onChange={handleChange} value={}/>
-                    <input className="input" name="longBreak" onChange={handleChange} value={}/>
+                    <input className="input" type="number" name="work" onChange={handleChange} value={newTimer.work} />
+                    <input className="input" type="number" name="shortBreak" onChange={handleChange} value={newTimer.short} />
+                    <input className="input" type="number" name="longBreak" onChange={handleChange} value={newTimer.long} />
                 </div>
-                <Button onClick={handleSubmit}>
-                    Set Timer
-                </Button>
+                <button type='submit'>Set Timer</button>
             </form>
         </div>
-    );
-};
+    )
+}
 
-export default SetPomodoro;
+export default SetPomodoro

@@ -10,10 +10,11 @@ import NewPostForm from "./components/NewPostForm";
 import { useContext } from "react";
 import AuthContext from "./contexts/AuthContext";
 import Activation from "./components/Activation";
-import Pomodoro from './pages/Pomodoro';
+import Chrono from './pages/Chrono';
 import ChatList from "./pages/ChatList";
 import Chat from "./pages/Chat";
 import NewChat from "./components/NewChat";
+import Pomodoro from "./pages/Pomodoro";
 
 function App() {
 
@@ -33,11 +34,12 @@ function App() {
           <Route path="/profile/:id" element={<ProtectedRoute><Profile /></ProtectedRoute>}/>
           <Route path="/profile/me" element={<ProtectedRoute><Profile user={user} /></ProtectedRoute>}/>
           <Route path="/posts/create" element={<ProtectedRoute><NewPostForm/></ProtectedRoute>} />
-          <Route path="/pomodoro" element={<ProtectedRoute><Pomodoro/></ProtectedRoute>} />
+          <Route path="/chrono" element={<ProtectedRoute><Chrono/></ProtectedRoute>} />
           <Route path="/chats/me" element={<ProtectedRoute><ChatList/></ProtectedRoute>}/>
           <Route path="/activate/:token" element={<Activation/>}/>
           <Route path="/chats/:chatId" element={<ProtectedRoute><Chat/></ProtectedRoute>}/>
           <Route path="/chats/create/:userId" element={<ProtectedRoute><NewChat/></ProtectedRoute>}/>
+          <Route path="/pomodoro" element={<ProtectedRoute><Pomodoro/></ProtectedRoute>}/>
         </Routes>
 
         {/* <UtilsBar /> */}
