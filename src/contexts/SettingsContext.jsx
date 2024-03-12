@@ -16,23 +16,21 @@ function SettingsContextProvider(props) {
         setTimerTime(executing)
     }
 
-    // start animation fn 
     function startTimer() {
         setStartAnimate(true)
     }
-    // pause animation fn 
+  
     function pauseTimer() {
     setStartAnimate(false)
     }
-    // pass time to counter 
+ 
     const children = ({ remainingTime }) => {
     const minutes = Math.floor(remainingTime / 60)
     const seconds = remainingTime % 60
     
     return `${minutes}:${seconds}`
     }
-
-    // clear session storage 
+ 
     const SettingsBtn = () => {
         setExecuting({})
         setPomodoro(0)
