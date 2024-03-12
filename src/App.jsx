@@ -15,6 +15,7 @@ import ChatList from "./pages/ChatList";
 import Chat from "./pages/Chat";
 import NewChat from "./components/NewChat";
 import Pomodoro from "./pages/Pomodoro";
+import SetPomodoro from "./components/SetPomodoro";
 
 function App() {
 
@@ -39,7 +40,8 @@ function App() {
           <Route path="/activate/:token" element={<Activation/>}/>
           <Route path="/chats/:chatId" element={<ProtectedRoute><Chat/></ProtectedRoute>}/>
           <Route path="/chats/create/:userId" element={<ProtectedRoute><NewChat/></ProtectedRoute>}/>
-          <Route path="/pomodoro" element={<ProtectedRoute><Pomodoro/></ProtectedRoute>}/>
+          <Route path="/pomodoro" element={<Pomodoro/>}/>
+          <Route path="/pomodoro/setPomodoro" element={<ProtectedRoute><SetPomodoro/></ProtectedRoute>}/>
         </Routes>
 
         {/* <UtilsBar /> */}

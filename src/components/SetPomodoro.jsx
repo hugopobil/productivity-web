@@ -1,7 +1,11 @@
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { SettingsContext } from '../contexts/SettingsContext'
+import { useNavigate } from 'react-router-dom'
+import "./SetPomodoro.css"
 
 const SetPomodoro = () => {
+
+    const navigate = useNavigate()
 
     const [newTimer, setNewTimer] = useState({
         work: 0.2,
@@ -11,6 +15,10 @@ const SetPomodoro = () => {
     })
 
     const {updateExecute} = useContext(SettingsContext)
+
+    useEffect(() => {
+        console.log(newTimer)
+    },[newTimer])
 
     const handleChange = input => {
         const {name, value} = input.target
@@ -38,6 +46,7 @@ const SetPomodoro = () => {
     const handleSubmit = e => {
         e.preventDefault()
         updateExecute(newTimer)
+        navigate('/pomodoro')
     }
     return (
         <div className="form-container">
