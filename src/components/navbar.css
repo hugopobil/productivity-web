@@ -65,3 +65,23 @@
     margin: 12px auto 0;
     border-radius: 15px;
 }
+
+.navbar-item .icon-home {
+    color: blue; 
+    font-size: 24px;
+}
+  
+.navbar-item .icon-plus {
+    font-size: 24px;
+    color: blue; 
+}
+  
+.navbar-item .icon-bubbles2 {
+    color: blue; 
+    font-size: 24px;
+}
+  
+.navbar-item .icon-equalizer {
+    color: blue; 
+    font-size: 24px;
+}
