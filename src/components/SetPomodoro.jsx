@@ -16,9 +16,9 @@ const SetPomodoro = () => {
 
     const {updateExecute} = useContext(SettingsContext)
 
-    useEffect(() => {
-        console.log(newTimer)
-    },[newTimer])
+    // useEffect(() => {
+    //     console.log(newTimer)
+    // },[newTimer])
 
     const handleChange = input => {
         const {name, value} = input.target

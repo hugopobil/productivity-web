@@ -34,24 +34,24 @@ const Pomodoro = () => {
                 title="Work" 
                 className={executing.active === 'work' ? 'active-label' : undefined} 
                 onClick={() => setCurrentTimer('work')} 
-              />
+              >Work</Button>
             </li>
             <li>
               <Button 
                 title="Short Break" 
                 className={executing.active === 'short' ? 'active-label' : undefined} 
                 onClick={() => setCurrentTimer('short')} 
-              />
+              >Short Break</Button>
             </li>
             <li>
               <Button 
                 title="Long Break" 
                 className={executing.active === 'long' ? 'active-label' : undefined} 
                 onClick={() => setCurrentTimer('long')} 
-              />
+              >Long Break</Button>
             </li>
           </ul>
-          <Button title="Settings" onClick={SettingsBtn} />
+          <Button title="Settings" onClick={SettingsBtn} >Settings</Button>
           <div className="timer-container">
             <div className="time-wrapper">
                 <CountDownAnimation
@@ -64,8 +64,8 @@ const Pomodoro = () => {
             </div>
           </div>
           <div className="button-wrapper">
-            <Button title="Start" className={!startAnimate ? 'active' : undefined} onClick={startTimer} />
-            <Button title="Pause" className={startAnimate ? 'active' : undefined} onClick={pauseTimer} />
+            <Button title="Start" className={!startAnimate ? 'active' : undefined} onClick={startTimer} >Start</Button>
+            <Button title="Pause" className={startAnimate ? 'active' : undefined} onClick={pauseTimer} >Pause</Button>
           </div>
         </> : <SetPomodoro />}
       </div>

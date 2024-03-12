@@ -40,7 +40,7 @@ function App() {
           <Route path="/activate/:token" element={<Activation/>}/>
           <Route path="/chats/:chatId" element={<ProtectedRoute><Chat/></ProtectedRoute>}/>
           <Route path="/chats/create/:userId" element={<ProtectedRoute><NewChat/></ProtectedRoute>}/>
-          <Route path="/pomodoro" element={<Pomodoro/>}/>
+          <Route path="/pomodoro" element={<ProtectedRoute><Pomodoro/></ProtectedRoute>}/>
           <Route path="/pomodoro/setPomodoro" element={<ProtectedRoute><SetPomodoro/></ProtectedRoute>}/>
         </Routes>
 

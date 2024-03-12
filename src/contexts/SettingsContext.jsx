@@ -58,7 +58,7 @@ function SettingsContextProvider(props) {
         }
     }
 
-    function stopAimate() {
+    function stopAnimate() {
         setStartAnimate(false)
     }
 
@@ -73,7 +73,7 @@ function SettingsContextProvider(props) {
             children,
             SettingsBtn,
             setCurrentTimer,
-            stopAimate
+            stopAnimate
         }}>
             {props.children}
         </SettingsContext.Provider>
