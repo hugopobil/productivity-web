@@ -1,6 +1,6 @@
 import "./Chrono.css";
 import { useEffect } from "react";
-
+import Button from "../components/Button";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -79,6 +79,12 @@ const Chrono = () => {
                     <button className="pomodoro-button">Create Post</button>
                 </Link>
             )}
+
+            {!isRunning && (
+                <Button className="create-pomodoro" linkTo={"/pomodoro"}>Create a Pomodoro 🍅</Button>
+            )}
+            
+
         </div>
     );
 };

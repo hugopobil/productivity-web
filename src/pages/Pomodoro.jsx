@@ -3,6 +3,7 @@ import Button from '../components/Button';
 import CountDownAnimation from '../components/CountDownAnimation';
 import SetPomodoro from '../components/SetPomodoro';
 import {SettingsContext} from '../contexts/SettingsContext';
+import "./Pomodoro.css"
 
 
 const Pomodoro = () => {
@@ -24,8 +25,8 @@ const Pomodoro = () => {
 
     return (
         <div className="container">
-        <h1>Pomodoro</h1>
-        <small>Be productive the right way.</small>
+        <h1>Pomodoro 🍅</h1>
+        <p>Be productive the right way.</p>
         {pomodoro !== 0 ?
         <>
           <ul className="labels">

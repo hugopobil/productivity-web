@@ -47,4 +47,21 @@
     align-items: center;
     margin-top: 20px;
     width: 80%;
+} 
+
+.create-pomodoro {
+    height: 35px;
+    width: 200px;
+    appearance: none;
+    color: white;
+    outline: none;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    background-color: #1400FF;
+    border-color: #1400FF;
+    border-width: medium;
+    border-style: solid;
+    text-align: center;
+    border-radius: 15px;
+    text-decoration: none;
+    margin: 12px 20px;
 }
