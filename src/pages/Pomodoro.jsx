@@ -2,7 +2,7 @@ import { useEffect, useContext } from 'react';
 import Button from '../components/Button';
 import CountDownAnimation from '../components/CountDownAnimation';
 import SetPomodoro from '../components/SetPomodoro';
-import SettingsContext from '../contexts/SettingsContext';
+import {SettingsContext} from '../contexts/SettingsContext';
 
 
 const Pomodoro = () => {
@@ -19,14 +19,12 @@ const Pomodoro = () => {
         SettingsBtn 
     } = useContext(SettingsContext)
 
-    // useEffect(() => {updateExecute(executing)}, [executing, startAnimate])
-    useEffect(() => {
-      console.log(pomodoro)
-    }, [pomodoro]) 
+    useEffect(() => {updateExecute(executing)}, [executing, startAnimate])
+   
 
     return (
         <div className="container">
-        {/* <h1>Pomodoro</h1>
+        <h1>Pomodoro</h1>
         <small>Be productive the right way.</small>
         {pomodoro !== 0 ?
         <>
@@ -57,7 +55,7 @@ const Pomodoro = () => {
           <div className="timer-container">
             <div className="time-wrapper">
                 <CountDownAnimation
-                  key={pomodoro} 
+                  // key={pomodoro} 
                   timer={pomodoro} 
                   animate={startAnimate}
                 >
@@ -69,7 +67,7 @@ const Pomodoro = () => {
             <Button title="Start" className={!startAnimate ? 'active' : undefined} onClick={startTimer} />
             <Button title="Pause" className={startAnimate ? 'active' : undefined} onClick={pauseTimer} />
           </div>
-        </> : <SetPomodoro />} */}
+        </> : <SetPomodoro />}
       </div>
     );
 };

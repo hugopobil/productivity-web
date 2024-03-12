@@ -7,7 +7,7 @@ const CountdownAnimation = ({key, timer, animate, children}) => {
 
     return (
       <CountdownCircleTimer
-        key={key}
+        // key={key}
         isPlaying={animate}
         duration={timer * 60}
         colors={[
