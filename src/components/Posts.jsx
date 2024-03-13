@@ -13,7 +13,7 @@ const Posts = () => {
   const [commentText, setCommentText] = useState("");
   const { user } = useContext(AuthContext);
 
-  console.log(user);
+  // console.log(user);
 
   const handleLike = (postId) => {
     likePost(postId).then((response) => {
@@ -67,7 +67,7 @@ const Posts = () => {
 
   const handleFollow = (userId, followerId) => {
     follow(userId, followerId).then((response) => {
-      console.log(response);
+      // console.log(response);
       fetchPosts();
     });
   };
