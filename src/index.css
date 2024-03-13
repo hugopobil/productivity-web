@@ -1,8 +1,11 @@
 @import url('./assets/css/fonts.css');
+@import "./styles.scss";
+
 
 body {
     margin: 0;
     width: 100%;
+    background-color: black;
 }
 
 * {

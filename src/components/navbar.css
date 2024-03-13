@@ -3,10 +3,8 @@
     width: 100%;
     position: fixed;
     bottom: 0;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: black;
     border-width: medium;
-    border-style: solid; 
-    border-color: #1400FF;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -67,21 +65,21 @@
 }
 
 .navbar-item .icon-home {
-    color: blue; 
+    color: white; 
     font-size: 24px;
 }
   
 .navbar-item .icon-plus {
     font-size: 24px;
-    color: blue; 
+    color: white; 
 }
   
 .navbar-item .icon-bubbles2 {
-    color: blue; 
+    color: white; 
     font-size: 24px;
 }
   
 .navbar-item .icon-equalizer {
-    color: blue; 
+    color: white; 
     font-size: 24px;
 }
