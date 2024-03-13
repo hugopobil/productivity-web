@@ -20,6 +20,8 @@ const Profile = (props) => {
   const numPosts = userPosts.length;
   const userIsSame = user.id === userId.id;
 
+  const profileUserId = userId.id || user.id
+
 
 useEffect(() => {
   if (userId) {
@@ -64,8 +66,8 @@ useEffect(() => {
       });
   };
   
-  const getFollowers = (userId) => {
-    getUserFollowed(userId)
+  const getFollowers = () => {
+    getUserFollowed(userId.id)
       .then((followers) => {
         setFollowersCount(followers.length);
       })
@@ -109,6 +111,7 @@ useEffect(() => {
     try {
       await toggleFollow(userId.id);
       setIsFollowing(!isFollowing); 
+      getFollowers()
     } catch (error) {
       console.error("Error toggling follow:", error);
     }
