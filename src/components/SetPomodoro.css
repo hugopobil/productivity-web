@@ -3,9 +3,10 @@
     flex-direction: column;
     align-items: center;
     height: 350px;
+    width: 70%;
     justify-content: center;
-    border-color: #1400FF;
-    border-width: medium;
+    border-color: white;
+    border-width: small;
     border-style: solid;
     padding: 0 30px;
     color:#1400FF;
@@ -21,11 +22,11 @@
 .pomodoro-input input{
     border-width: medium;
     border-style: solid;
-    border-color: #1400FF;
     border-radius: 20px;
     width: 100%;
     padding: auto;
     text-align: center;
+    color: black;
 }
 
 .form-container .pomodoro-button {

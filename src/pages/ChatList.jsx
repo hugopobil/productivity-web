@@ -30,7 +30,7 @@ const ChatList = () => {
             {chat.users.map(user => (
               user.id !== currentUser.id && (
                 <div className="Chat-info">
-                <img src={user.image} alt={user.username} />
+                <img className="chat-profile-image" src={user.image} alt={user.username} />
                 <h3>{user.username}</h3>
                 </div>
               )

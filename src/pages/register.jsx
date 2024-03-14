@@ -43,7 +43,7 @@ const Register = () => {
       <div className="Registation-form">
       <h1>Register</h1>
         <form onSubmit={handleSubmit}>
-          <div>
+          <div className="register-input-div">
           <label htmlFor="image">Add your photo</label>
           <input
             name="image"
@@ -55,7 +55,7 @@ const Register = () => {
           />
           {touched.image && errors.image}
           </div>
-          <div>
+          <div className="register-input-div">
           <label htmlFor="username">User Name:</label>
           <input
             name="username"
@@ -66,7 +66,7 @@ const Register = () => {
             onBlur={handleBlur} />
             {touched.username && errors.username}
           </div>
-          <div>
+          <div className="register-input-div">
           <label htmlFor="email">E-mail:</label>
           <input
             name="email"
@@ -77,7 +77,7 @@ const Register = () => {
             onBlur={handleBlur} />
             {touched.email && errors.email}
           </div>
-          <div>
+          <div className="register-input-div">
           <label htmlFor="password">Password:</label>
           <input
             name="password"

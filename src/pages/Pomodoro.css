@@ -4,12 +4,15 @@
     align-items: center;
     height: 100vh;
     justify-content: center;
-    color: #1400FF;
-    border-color: #1400FF;
-    border-width: medium;
-    border-style: solid;
-    padding: 0 12px;
 } 
+
+.container h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 40px;
+    color:#1400FF;
+    margin-bottom: 30px;
+}
 
 .labels {
     display: flex;
@@ -20,6 +23,17 @@
     width: 100%;
     margin:0;
     padding: 0;
+}
+
+.labels li {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+.active-label {
+    color: #1400FF;
+    border-radius: 10px;
 }
 
 .container Button{
@@ -36,6 +50,8 @@
     text-align: center;
     text-decoration: none;
     margin-bottom: 10px;
+    border-radius: 10px;
+    margin: 10px 5px;
 } 
 
 .time-wrapper{

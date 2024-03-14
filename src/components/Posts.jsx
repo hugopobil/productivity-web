@@ -3,7 +3,8 @@ import { getPosts, likePost } from "../services/PostService";
 import AuthContext from "../contexts/AuthContext";
 import "./posts.css";
 import {
-  createComment, follow,
+  createComment,
+  follow,
   deleteComment as deleteCommentService,
 } from "../services/PostService";
 import { Link } from "react-router-dom";
@@ -97,25 +98,31 @@ const Posts = () => {
                   <div className="posted-by-user-image">
                     <img src={post_returned.user.image} alt="" />
                     <div className="by-user">
-                      
-                        <Link className="link-profile-user" to={`/profile/${post_returned.user.id}`}>
-                          {post_returned.user.username}
-                        </Link>
-                      
+                      <Link
+                        className="link-profile-user"
+                        to={`/profile/${post_returned.user.id}`}
+                      >
+                        {post_returned.user.username}
+                      </Link>
+
                       <button
-                    className="follow-button"
-                    onClick={() => handleFollow(user.id, post_returned.id)}
-                  >
-                    + Follow
-                  </button>
+                        className="follow-button"
+                        onClick={() => handleFollow(user.id, post_returned.id)}
+                      >
+                        + Follow
+                      </button>
                     </div>
                   </div>
                 </div>
                 <p className="posts-location">
-                  <>{post_returned.location}   ·    {formatTime(post_returned.duration)} · {new Date(post_returned.createdAt).toLocaleDateString()}</>
+                  <>
+                    {post_returned.location} ·{" "}
+                    {formatTime(post_returned.duration)} ·{" "}
+                    {new Date(post_returned.createdAt).toLocaleDateString()}
+                  </>
                 </p>
                 <img src={post_returned.image} alt={post_returned.title} />
-                
+
                 <div className="posts-actions">
                   <button
                     className="share-button"
@@ -129,11 +136,10 @@ const Posts = () => {
                     Share
                   </button>
                 </div>
-                
+
                 <div className="post-likes">
-                  
-                  {post_returned.likes ? post_returned.likes.length : 0} 
-                  People support this post{" "}
+                  {post_returned.likes ? post_returned.likes.length : 0} people
+                  support this post
                 </div>
                 {/* <h2 className="posts-title">{post_returned.title}</h2> */}
                 <p className="posts-content">{post_returned.content}</p>
@@ -148,31 +154,30 @@ const Posts = () => {
                   </ul>
                 );
               })} */}
+                {post_returned.comments && (
+                  <div className="posts-commments-display">
+                    {/* {post_returned.comments} */}
+                    {post_returned.comments.map((comment) => {
+                      return (
+                        <div className="comments" key={comment.id}>
+                          <p>
+                            <strong>{comment.user.username}</strong>{" "}
+                            {comment.content}
+                          </p>
 
-                
-
-                <div className="posts-commments-display">
-                  {/* {post_returned.comments} */}
-                  {post_returned.comments.map((comment) => {
-                    return (
-                      <div className="comments" key={comment.id}>
-                        <p>
-                          <strong>{comment.user.username}</strong>{" "}
-                          {comment.content}
-                        </p>
-
-                        {user && comment.user.id === user.id && (
-                          <button
-                            className="delete-button"
-                            onClick={() => deleteComment(comment.id)}
-                          >
-                            Detele
-                          </button>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
+                          {user && comment.user.id === user.id && (
+                            <button
+                              className="delete-button"
+                              onClick={() => deleteComment(comment.id)}
+                            >
+                              Detele
+                            </button>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
 
                 <div className="comment-section">
                   <input
