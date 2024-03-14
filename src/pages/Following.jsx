@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react';
 import { getUserFollowing } from '../services/FollowService';
+import { useParams } from 'react-router-dom';
 import "./Following.css"
 
 const Following = () => {
+
+    const params = useParams();
+    const userId = params.id
+
     const [following, setFollowing] = useState([])
 
     useEffect(() => {
-        getUserFollowing()
+        getUserFollowing(userId) 
         .then((response) => {
             setFollowing(response);
           })
@@ -14,8 +19,13 @@ const Following = () => {
     },[])
 
     return (
-        <div>
-            
+        <div className="following-container">
+            <h1>Followers:</h1>
+            <ul>
+                {following.map((following) => (
+                    <li key={following.id}>{following.username}</li>
+                ))}
+            </ul>
         </div>
     );
 };

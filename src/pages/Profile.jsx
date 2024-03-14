@@ -6,7 +6,8 @@ import PostsByUser from "../components/PostsByUser";
 import Button from "../components/Button";
 import { useParams } from "react-router-dom";
 import { getUserByID } from "../services/UserService"; 
-import { toggleFollow, getUserFollowed, getUserFollowing } from "../services/FollowService";
+import { toggleFollow, getUserFollowed, getUserFollowing } from "../services/FollowService"; 
+import { Link } from "react-router-dom";
 
 const Profile = (props) => {
   const userId = useParams();
@@ -118,6 +119,7 @@ useEffect(() => {
   };
 
   return (
+    
     <div className="profile-main-page">
       <div className="profile-user-main-info">
         <img src={userId ? userProfile.image : user.image} alt="userImage" />
@@ -143,8 +145,12 @@ useEffect(() => {
             </Button>
           </div>
           <div className="followers-following-counts">
+            <Link to={`/followers/${profileUserId}`}>
             <p>Followers: {followersCount}</p>
+            </Link>
+            <Link to={`/following/${profileUserId}`}>
             <p>Following: {followingCount}</p>
+            </Link>
           </div>
         </div>
       </div>
