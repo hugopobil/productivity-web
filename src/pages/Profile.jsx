@@ -5,7 +5,9 @@ import "./profile.css";
 import PostsByUser from "../components/PostsByUser";
 import Button from "../components/Button";
 import { useParams } from "react-router-dom";
-import { getUserByID } from "../services/UserService";
+import { getUserByID } from "../services/UserService"; 
+import { toggleFollow, getUserFollowed, getUserFollowing } from "../services/FollowService"; 
+import { Link } from "react-router-dom";
 
 const Profile = (props) => {
   const userId = useParams();
@@ -13,8 +15,13 @@ const Profile = (props) => {
   const [userPosts, setUserPosts] = useState([]);
   const [userProfile, setUserProfile] = useState({});
   const [totalCount, setTotalCount] = useState(0);
+  const [isFollowing, setIsFollowing] = useState(false);
+  const [followersCount, setFollowersCount] = useState(0);
+  const [followingCount, setFollowingCount] = useState(0);
   const numPosts = userPosts.length;
   const userIsSame = user.id === userId.id;
+
+  const profileUserId = userId.id || user.id
 
 
 useEffect(() => {
@@ -25,8 +32,12 @@ useEffect(() => {
     });
     getUserByID(userId.id).then((response) => {
       setUserProfile(response);
-      console.log(response);
     });
+
+    // checkIfFollowing();
+    checkIfFollowing(userId.id);
+    getFollowers(userId.id);
+    getFollowing(userId.id);
   }
 
   if (!userId) {
@@ -45,7 +56,38 @@ useEffect(() => {
     setUserPosts(response);
   }
 }, [userId, user.id]);
+
+  const checkIfFollowing = () => {
+    getUserFollowed(userId.id)
+      .then((followedUsers) => {
+        setIsFollowing(followedUsers.some((followedUser) => followedUser.id === user.id));
+      })
+      .catch((error) => {
+        console.error("Error checking if following:", error);
+      });
+  };
   
+  const getFollowers = () => {
+    getUserFollowed(userId.id)
+      .then((followers) => {
+        setFollowersCount(followers.length);
+      })
+      .catch((error) => {
+        console.error("Error getting followers:", error);
+      });
+  };
+  
+  const getFollowing = (userId) => {
+    getUserFollowing(userId)
+      .then((following) => {
+        setFollowingCount(following.length);
+      })
+      .catch((error) => {
+        console.error("Error getting following:", error);
+      });
+  };
+
+
 
   useEffect(() => {
     if (userId) {
@@ -55,7 +97,6 @@ useEffect(() => {
       });
       getUserByID(userId.id).then((response) => {
         setUserProfile(response);
-        console.log(response);
       });
     }
 
@@ -67,7 +108,18 @@ useEffect(() => {
     }
   }, [userId, user.id]);
 
+  const handleToggleFollow = async () => {
+    try {
+      await toggleFollow(userId.id);
+      setIsFollowing(!isFollowing); 
+      getFollowers()
+    } catch (error) {
+      console.error("Error toggling follow:", error);
+    }
+  };
+
   return (
+    
     <div className="profile-main-page">
       <div className="profile-user-main-info">
         <img src={userId ? userProfile.image : user.image} alt="userImage" />
@@ -88,13 +140,17 @@ useEffect(() => {
                 </Button>
               </li>
             )}
-            {/* {user && (
-              <li className="navbar-item">
-                <Button className="profile-button" onClick={""}>
-                  Message
-                </Button>
-              </li>
-            )} */}
+            <Button onClick={handleToggleFollow}>
+            {isFollowing ? "Unfollow" : "Follow"}
+            </Button>
+          </div>
+          <div className="followers-following-counts">
+            <Link to={`/followers/${profileUserId}`}>
+            <p>Followers: {followersCount}</p>
+            </Link>
+            <Link to={`/following/${profileUserId}`}>
+            <p>Following: {followingCount}</p>
+            </Link>
           </div>
         </div>
       </div>

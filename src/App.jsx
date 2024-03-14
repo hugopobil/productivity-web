@@ -16,6 +16,8 @@ import Chat from "./pages/Chat";
 import NewChat from "./components/NewChat";
 import Pomodoro from "./pages/Pomodoro";
 import SetPomodoro from "./components/SetPomodoro";
+import Followers from "./pages/Followers";
+import Following from './pages/Following';
 
 function App() {
 
@@ -42,6 +44,8 @@ function App() {
           <Route path="/chats/create/:userId" element={<ProtectedRoute><NewChat/></ProtectedRoute>}/>
           <Route path="/pomodoro" element={<ProtectedRoute><Pomodoro/></ProtectedRoute>}/>
           <Route path="/pomodoro/setPomodoro" element={<ProtectedRoute><SetPomodoro/></ProtectedRoute>}/>
+          <Route path="/followers/:id" element={<ProtectedRoute><Followers/></ProtectedRoute>}/>
+          <Route path="/following/:id" element={<ProtectedRoute><Following/></ProtectedRoute>} />
         </Routes>
 
         {/* <UtilsBar /> */}
