@@ -18,3 +18,6 @@ export const activateUser = (token) => {
     return http.get(`/activate/${token}`)
 }
 
+export const editUser = (userId, userData) => {
+    return http.put(`/editprofile/${userId}`, userData);
+};

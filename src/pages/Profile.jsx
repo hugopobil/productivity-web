@@ -138,7 +138,7 @@ const Profile = (props) => {
                   </Button>
                 </li>
                 <li className="navbar-item">
-                  <Link to={`/edit/profile/${user.id}`}>
+                  <Link to={`/editprofile/${user.id}`}>
                     <p>Edit Profile</p>
                   </Link>
                 </li>
