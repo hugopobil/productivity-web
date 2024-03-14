@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { getUserFollowed } from '../services/FollowService';
-import "./Followers.css"
+import "./Following.css"
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Followers = () => { 
 
@@ -20,15 +21,27 @@ const Followers = () => {
     },[])
 
     return (
-        <div className="followers-container">
-            <h1>Followers:</h1>
-            <ul>
-                {followers.map((follower) => (
-                    <li key={follower.id}>{follower.username}</li>
-                ))}
-            </ul>
-        </div>
-    );
+    <div className="following-container">
+      <h1>Followers:</h1>
+      <ul>
+        {followers.map((follower) => (
+          <div className="follower">
+            <img
+              className="follower-img"
+              src={follower.image}
+              alt={follower.username}
+            />
+            <Link
+              className="link-profile-user"
+              to={`/profile/${follower.id}`}
+            >
+              {follower.username}
+            </Link>
+          </div>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default Followers;
