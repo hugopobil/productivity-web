@@ -123,7 +123,7 @@ useEffect(() => {
     <div className="profile-main-page">
       <div className="profile-user-main-info">
         <img src={userId ? userProfile.image : user.image} alt="userImage" />
-        <div>
+        <div className="profile-head">
           <h2>{userId ? userProfile.username : user.username}</h2>
           <div className="userProfileButtons">
             {userIsSame && (
@@ -133,17 +133,20 @@ useEffect(() => {
                 </Button>
               </li>
             )}
-            {user && (
+            {!userIsSame && (
               <li className="navbar-item">
                 <Button className="profile-button" linkTo={`/chats/create/${userId.id}`}>
                   Message
                 </Button>
               </li>
             )}
-            <Button onClick={handleToggleFollow}>
-            {isFollowing ? "Unfollow" : "Follow"}
-            </Button>
+            {!userIsSame  && (
+              <Button className="follow-button" onClick={handleToggleFollow}>
+              {isFollowing ? "Unfollow" : "Follow"}
+              </Button>)}
+            
           </div>
+          
           <div className="followers-following-counts">
             <Link to={`/followers/${profileUserId}`}>
             <p>Followers: {followersCount}</p>

@@ -105,12 +105,12 @@ const Posts = () => {
                         {post_returned.user.username}
                       </Link>
 
-                      <button
+                      {/* <button
                         className="follow-button"
                         onClick={() => handleFollow(user.id, post_returned.id)}
                       >
                         + Follow
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 </div>
