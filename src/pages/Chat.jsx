@@ -50,10 +50,13 @@ const Chat = () => {
         <div className="Chat-container">
             {otherUser && (
                 <div className="Chat-with">
-                    <Link to={`/profile/${otherUser.id}`}>
-                    <img src={otherUser.image} alt={otherUser.username} />
+                    <Link to={`/profile/${otherUser.id}`} className='Profile-link'>
+                     <img src={otherUser.image} alt={otherUser.username} />
+                     <h2>{otherUser.username}</h2>
                     </Link>
-                    <h2>{otherUser.username}</h2>
+                    <Link to="/chats/me" className="Back-Button">
+                        Back
+                    </Link>
                 </div>
             )}
             {/* <h2>Chat with {chat?.users[0].username}</h2> */}

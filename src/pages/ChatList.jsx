@@ -82,25 +82,28 @@ const ChatList = () => {
       <div className="Chat-list">
         {chats.map((chat) => (
           <div key={chat.id} className="chat-row">
-            <Link
-              to={`/chats/${chat.id}`}
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
               {chat.users.map(
                 (user) =>
                   user.id !== currentUser.id && (
                     <div className="Chat-info">
-                      <img
-                        className="chat-profile-image"
-                        src={user.image}
-                        alt={user.username}
-                      />
-                      <h3>{user.username}</h3>
+                  
+                      <Link
+                      to={`/chats/${chat.id}`}
+                      style={{ textDecoration: "none", color: "inherit" }}
+                      className="Chat-link"
+                      >
+                        <img
+                          className="chat-profile-image"
+                          src={user.image}
+                          alt={user.username}
+                        />
+                        <h3>{user.username}</h3>
+                      </Link>
                       <button className="delet-button-posts" onClick={() => deleteChatSubmit(chat.id)}>Delete</button>
                     </div>
                   )
               )}
-            </Link>
+            
           </div>
         ))}
       </div>
