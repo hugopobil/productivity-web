@@ -114,10 +114,21 @@ const Posts = () => {
                     </div>
                   </div>
                 </div>
-                <p className="posts-location">
+                <p
+                  className="posts-location"
+                  style={{
+                    flexDirection: "row",
+                    display: "flex",
+                  }}
+                >
                   <>
-                    {post_returned.location} ·{" "}
-                    {formatTime(post_returned.duration)} ·{" "}
+                    {post_returned.location}
+                    <p style={{
+                      margin: "0 30px",
+                      color: "#1400FF"
+
+
+                    }}>{formatTime(post_returned.duration)}</p>
                     {new Date(post_returned.createdAt).toLocaleDateString()}
                   </>
                 </p>

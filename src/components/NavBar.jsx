@@ -34,20 +34,20 @@ const Navbar = () => {
             Posts
           </Link>
         </li> */}
-        {user && <li className="navbar-item">
+        {user && <li className="navbar-item-icon">
           <Link to="/posts" className="navbar__link">
           <span className="icon-home"></span>
           </Link>
         </li>}
 
-        {user && <li className="navbar-item">
+        {user && <li className="navbar-item-icon">
           <Link to="/posts/create" className="navbar__link">
           <span className="icon-plus"></span>
           </Link>
         </li>}
 
         {user && (
-          <li className="navbar-item">
+          <li className="navbar-item-icon">
             <Link to="/chats/me" className="navbar__link">
             <span className="icon-bubbles2"></span>
             </Link>
@@ -55,7 +55,7 @@ const Navbar = () => {
         )}
 
         {user && (
-          <li className="navbar-item">
+          <li className="navbar-item-icon">
             <Link to="/chrono" className="navbar__link">
               <span className="icon-equalizer"></span>
             </Link>

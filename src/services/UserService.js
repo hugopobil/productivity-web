@@ -21,3 +21,7 @@ export const activateUser = (token) => {
 export const editUser = (userId, userData) => {
     return http.put(`/editprofile/${userId}`, userData);
 };
+
+export const getAllUsers = () => {
+    return http.get(`/users`)
+}

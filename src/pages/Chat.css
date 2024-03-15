@@ -62,9 +62,6 @@
 
 .Input .Text-input {
     border-radius: 20px;
-    border-color: white;
-    border-width: medium;
-    border-style: solid;
     padding: 5px;
     width: 70%;
     color: black
@@ -87,7 +84,7 @@
     border-radius: 50%;
     margin-right: 10px;
     border-width: medium;
-    border-color: white;
+    border-color: #1400FF;
     border-style: solid;
     margin-left: 5px;
 } 
@@ -95,7 +92,7 @@
 .Chat-with {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: center;    
     width: 100%;
     border-bottom-style: solid;
     border-bottom-width: medium;

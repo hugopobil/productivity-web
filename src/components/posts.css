@@ -199,6 +199,7 @@
     font-size: 12px;
     margin-left: 20px;
     border-radius: 5px;
+    border-color: white;
 }
 
 .comment-button:hover {
@@ -216,6 +217,7 @@
     outline: none;
     background-color: white;
     text-align: center;
+    border-color: #1400FF;
     text-decoration: none;
     margin-top: 20px;
     margin-right: 10px;

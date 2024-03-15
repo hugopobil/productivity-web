@@ -55,7 +55,6 @@ const NewPostForm = () => {
         <form onSubmit={handleSubmit}>
         <div className="form-input">
           <label htmlFor="image">Add photo</label>
-          <br />
           <input
             name="image"
             type="file"
@@ -65,7 +64,6 @@ const NewPostForm = () => {
             }}
             onBlur={handleBlur}
           />
-          <br />
           {touched.image && errors.image}
         </div>
         <div className="form-input">

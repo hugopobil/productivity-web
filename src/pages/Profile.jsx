@@ -1,6 +1,6 @@
 import AuthContext from "../contexts/AuthContext";
 import { useContext, useEffect, useState } from "react";
-import { getUserPosts } from "../services/PostService";
+import { getUserPosts, deletePost } from "../services/PostService";
 import "./profile.css";
 import PostsByUser from "../components/PostsByUser";
 import Button from "../components/Button";
@@ -12,6 +12,7 @@ import {
   getUserFollowing,
 } from "../services/FollowService";
 import { Link } from "react-router-dom";
+// import DurationChart from "../components/DurationChart";
 
 const Profile = (props) => {
   const userId = useParams();
@@ -70,6 +71,15 @@ const Profile = (props) => {
       .catch((error) => {
         console.error("Error checking if following:", error);
       });
+  };
+
+  const deletePostSubmit = (id) => {
+    deletePost(id).then((response) => {
+      getUserPosts(userId.id).then((response) => {
+        response.sort((a, b) => b.createdAt - a.createdAt);
+        setUserPosts(response);
+      });
+    });
   };
 
   const getFollowers = () => {
@@ -160,7 +170,6 @@ const Profile = (props) => {
               </Button>
             )}
           </div>
-
           <div className="followers-following-counts">
             <Link to={`/followers/${profileUserId}`}>
               <p>Followers: {followersCount}</p>
@@ -169,10 +178,10 @@ const Profile = (props) => {
               <p>Following: {followingCount}</p>
             </Link>
           </div>
+          <div className="posts-info">
+            <p>Number of posts: {numPosts}</p>
+          </div>
         </div>
-      </div>
-      <div className="posts-info">
-        <p>Number of posts: {numPosts}</p>
       </div>
 
       {!userPosts.length && (
@@ -187,7 +196,13 @@ const Profile = (props) => {
       )}
 
       {userPosts.map((post) => {
-        return <PostsByUser key={post.id} postData={post} />;
+        return (
+          <PostsByUser
+            key={post.id}
+            postData={post}
+            deletePostSubmit={deletePostSubmit}
+          />
+        );
       })}
 
       {/* <ul>
