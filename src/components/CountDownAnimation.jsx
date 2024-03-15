@@ -14,8 +14,10 @@ const CountdownAnimation = ({key, timer, animate, children}) => {
         colorsTime={[50, 30, 15, 0]}
         strokeWidth={6}
         size={220}
+        style={{ fontSize: "45px" }}
         onComplete={ () => {
           stopAnimate()
+          alert("You run out of time!")
         }}
       >
         {children}
