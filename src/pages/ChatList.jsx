@@ -15,7 +15,6 @@ const ChatList = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    console.log("descargo los chats");
     getAllUsers().then((response) => {
       setUsers(response);
     });
@@ -85,7 +84,7 @@ const ChatList = () => {
               {chat.users.map(
                 (user) =>
                   user.id !== currentUser.id && (
-                    <div className="Chat-info">
+                    <div key={user.id} className="Chat-info">
                   
                       <Link
                       to={`/chats/${chat.id}`}

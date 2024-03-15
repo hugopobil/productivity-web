@@ -9,7 +9,6 @@ import "./Chat.css"
 const Chat = () => {
 
     const { user: currentUser } = useContext(AuthContext)
-    console.log(currentUser.id)
 
     const isUserLogged = (userId) => { 
         return userId === currentUser.id
@@ -66,7 +65,7 @@ const Chat = () => {
                     const isMe = isUserLogged(message.user)
 
                     return (
-                        <div className={`Message-content Message-content-${isMe  ? 'right' : 'left' }`} key={message._id}>
+                        <div key={message.id} className={`Message-content Message-content-${isMe  ? 'right' : 'left' }`}>
                             <div className={`Message Message-${isMe  ? 'right' : 'left' }`}>
                                 {message.content}
                             </div>
