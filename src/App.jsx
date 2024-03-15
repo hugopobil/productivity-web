@@ -19,6 +19,7 @@ import SetPomodoro from "./components/SetPomodoro";
 import Followers from "./pages/Followers";
 import Following from './pages/Following';
 import EditProfile from './pages/EditProfile';
+import UpdatePost from "./pages/UpdatePost";
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
           <Route path="/followers/:id" element={<ProtectedRoute><Followers/></ProtectedRoute>}/>
           <Route path="/following/:id" element={<ProtectedRoute><Following/></ProtectedRoute>} />
           <Route path="/editprofile/:id" element={<ProtectedRoute><EditProfile/></ProtectedRoute>} /> 
+          <Route path="/posts/update/:id" element={<ProtectedRoute><UpdatePost/></ProtectedRoute>}/>
         </Routes>
 
         {/* <UtilsBar /> */}

@@ -37,3 +37,12 @@ export const follow = (userId, followerId) => {
 export const deletePost = (postId) => {
   return http.delete(`/posts/delete/${postId}`);
 };
+
+export const updatePost = (id, postData) => {
+  return http.put(`/posts/update/${id}`, postData);
+}; 
+
+export const getPost = (postId) => {
+  return http.get(`/post/${postId}`)
+}
+

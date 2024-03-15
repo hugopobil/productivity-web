@@ -1,6 +1,7 @@
 import "./PostByUser.css";
 import { useContext } from "react";
 import AuthContext from "../contexts/AuthContext";
+import { Link } from "react-router-dom";
 // import {getPosts, deletePost} from "../services/PostService";
 
 const PostsByUser = ({ postData, deletePostSubmit }) => {
@@ -40,6 +41,13 @@ const PostsByUser = ({ postData, deletePostSubmit }) => {
       </p>
       <img className="post-by-user-image" src={postData.image} alt="" />
       <p className="">{postData.content}</p>
+        <div className="Lower-Menu">
+          {user && postData.user === user.id && (
+          <Link className="Update-Button" to={`/posts/update/${postData.id}`}>
+          Update Post
+          </Link>
+          )}
+      </div>
     </div>
   );
 };
