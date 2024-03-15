@@ -56,7 +56,6 @@ const EditProfile = () => {
       image: "",
     },
     onSubmit: (values) => {
-        console.log(user.id, values)
         editUser(user.id, values)
         .then(() => {
           navigate(`/profile/${user.id}`);

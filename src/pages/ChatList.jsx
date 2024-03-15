@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "./ChatList.css";
 import { getAllUsers } from "../services/UserService";
 import Button from "../components/Button";
+import { deleteChat } from "../services/ChatService";
 
 const ChatList = () => {
   const [chats, setChats] = useState([]);
@@ -24,6 +25,14 @@ const ChatList = () => {
       })
       .catch((error) => console.error(error));
   }, [searchTerm]);
+
+  const deleteChatSubmit = (chatId) => {
+    deleteChat(chatId)
+      .then((response) => {
+        setChats(chats.filter((chat) => chat.id !== chatId));
+      })
+      .catch((error) => console.error(error));
+  }
 
   return (
     <div className="Chat-list-container">
@@ -87,6 +96,7 @@ const ChatList = () => {
                         alt={user.username}
                       />
                       <h3>{user.username}</h3>
+                      <button className="delet-button-posts" onClick={() => deleteChatSubmit(chat.id)}>Delete</button>
                     </div>
                   )
               )}
