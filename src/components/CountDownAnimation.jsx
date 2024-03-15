@@ -4,7 +4,7 @@ import { SettingsContext } from '../contexts/SettingsContext'
 const CountdownAnimation = ({key, timer, animate, children}) => {
 
   const { stopAnimate } = useContext(SettingsContext)
-
+  
     return (
       <CountdownCircleTimer
         // key={key}
@@ -17,7 +17,7 @@ const CountdownAnimation = ({key, timer, animate, children}) => {
         style={{ fontSize: "45px" }}
         onComplete={ () => {
           stopAnimate()
-          alert("You run out of time!")
+          alert("Your Timer is Done!")
         }}
       >
         {children}

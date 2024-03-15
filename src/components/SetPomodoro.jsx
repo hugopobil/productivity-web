@@ -22,23 +22,24 @@ const SetPomodoro = () => {
 
     const handleChange = input => {
         const {name, value} = input.target
+        const parsedValue = isNaN(parseInt(value)) ? '' : parseInt(value);
         switch (name) {
             case 'work':
                 setNewTimer({
                     ...newTimer,
-                    work: parseInt(value)
+                    work: parsedValue
                 })
                 break;
             case 'shortBreak':
                 setNewTimer({
                     ...newTimer,
-                    short: parseInt(value)
+                    short: parsedValue
                 })
                 break;
             case 'longBreak':
                 setNewTimer({
                     ...newTimer,
-                    long: parseInt(value)
+                    long: parsedValue
                 })
                 break;
         }
