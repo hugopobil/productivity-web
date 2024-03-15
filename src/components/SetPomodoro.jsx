@@ -8,9 +8,9 @@ const SetPomodoro = () => {
     const navigate = useNavigate()
 
     const [newTimer, setNewTimer] = useState({
-        work: 0.2,
-        short: 0.1,
-        long: 0.5,
+        work: 2,
+        short: 1,
+        long: 5,
         active: 'work'
     })
 

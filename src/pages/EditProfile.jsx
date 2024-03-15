@@ -56,8 +56,13 @@ const EditProfile = () => {
       image: "",
     },
     onSubmit: (values) => {
-        console.log(user.id, values)
-        editUser(user.id, values)
+      const formData = new FormData();
+      formData.append("username", values.username);
+      formData.append("email", values.email);
+      formData.append("password", values.password);
+      formData.append("image", values.image);
+
+        editUser(user.id, formData)
         .then(() => {
           navigate(`/profile/${user.id}`);
         })
