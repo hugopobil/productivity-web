@@ -155,7 +155,7 @@
     text-align: center;
     text-decoration: none;
     margin: 12px auto 0;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .post-likes{
@@ -260,8 +260,9 @@
 .delete-button {
     background-color: #E23F44;
     color: white;
+    border-color: #E23F44;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 .follow-button{

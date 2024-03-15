@@ -20,7 +20,7 @@ const Following = () => {
 
   return (
     <div className="following-container">
-      <h1>Followers:</h1>
+      <h1>Following</h1>
       <ul>
         {following.map((following) => (
           <div className="follower">

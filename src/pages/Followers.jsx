@@ -22,7 +22,7 @@ const Followers = () => {
 
     return (
     <div className="following-container">
-      <h1>Followers:</h1>
+      <h1>Followers</h1>
       <ul>
         {followers.map((follower) => (
           <div className="follower">

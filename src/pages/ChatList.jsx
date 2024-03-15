@@ -25,7 +25,6 @@ const ChatList = () => {
       .catch((error) => console.error(error));
   }, [searchTerm]);
 
-  console.log("Users:", users);
   return (
     <div className="Chat-list-container">
       <div className="Title">
@@ -39,7 +38,7 @@ const ChatList = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        {searchTerm && !searchResults.length && (
+        {searchTerm && !searchResults && (
           <p>No se encontraron resultados</p>
         )}
 

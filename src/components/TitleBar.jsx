@@ -8,6 +8,12 @@ const TitleBar = () => {
 
   return (
     <div className="TitleBar">
+      <h1>
+        <Link to="/" className="TitleBar__link">
+          ACHIEVE IT
+        </Link>
+      </h1>
+
       {user && (
         <div className="TitleBar-item">
           <Link to={`/profile/${user.id}`} className="TitleBar__link">
@@ -19,14 +25,10 @@ const TitleBar = () => {
           </Link>
         </div>
       )}
-      <h1>
-        <Link to="/" className="TitleBar__link">
-          ACHIEVE IT
-        </Link>
-      </h1>
-      <Link to={"/chats/me"} className="TitleBar__link">
+
+      {/* <Link to={"/chats/me"} className="TitleBar__link">
         <span className="icon-bubbles2"></span>
-      </Link>
+      </Link> */}
     </div>
   );
 };
