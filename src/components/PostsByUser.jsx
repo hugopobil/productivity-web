@@ -1,7 +1,8 @@
 import "./PostByUser.css";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import AuthContext from "../contexts/AuthContext";
 import { Link } from "react-router-dom";
+import { deleteComment as deleteCommentService } from "../services/PostService";
 // import {getPosts, deletePost} from "../services/PostService";
 
 const PostsByUser = ({ postData, deletePostSubmit }) => {
@@ -14,6 +15,16 @@ const PostsByUser = ({ postData, deletePostSubmit }) => {
 
     return `${hours}:${minutes}:${remainingSeconds}`;
   };
+
+  const deleteComment = (commentId) => {
+    deleteCommentService(commentId).then((response) => {
+      fetchPosts();
+    });
+  };
+
+  useEffect(() => {
+    console.log(postData);
+  }, [postData]);
 
   return (
     <div className="post-by-user-container" key={postData.id}>
@@ -43,7 +54,9 @@ const PostsByUser = ({ postData, deletePostSubmit }) => {
             Update Post
           </Link>
         )}
-        {/* {postData.comments.map((comment) => {
+        
+      </div>
+      {/* {postData.comments.map((comment) => {
           return (
             <div className="comments" key={comment.id}>
               <p>
@@ -61,7 +74,6 @@ const PostsByUser = ({ postData, deletePostSubmit }) => {
             </div>
           );
         })} */}
-      </div>
     </div>
   );
 };
