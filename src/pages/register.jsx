@@ -27,11 +27,13 @@ const Register = () => {
         data.append(keyValue, values[keyValue])
       })
 
-      register(data)
+    register(data)
         .then(() => {
           navigate('/login')
+          alert('An email has been sent for you to verify your user.')
         })
         .catch(err => console.error(err))
+        
     },
     validationSchema: userSchema,
     validateOnBlur: true,
