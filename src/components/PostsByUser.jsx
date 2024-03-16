@@ -22,9 +22,9 @@ const PostsByUser = ({ postData, deletePostSubmit }) => {
     });
   };
 
-  useEffect(() => {
-    console.log(postData);
-  }, [postData]);
+  // useEffect(() => {
+  //   console.log(postData);
+  // }, [postData]);
 
   return (
     <div className="post-by-user-container" key={postData.id}>

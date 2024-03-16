@@ -19,7 +19,7 @@ const EditProfile = () => {
         getUserByID(userId)
           .then((response) => {
             setUser(response);
-            console.log(response);
+            // console.log(response);
           })
           .catch((error) => {
             console.error(error);

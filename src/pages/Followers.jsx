@@ -12,7 +12,7 @@ const Followers = () => {
     const [followers, setFollowers] = useState([])
 
     useEffect(() => {
-        console.log(userId)
+        // console.log(userId)
         getUserFollowed(userId)
         .then((response) => {
             setFollowers(response);
