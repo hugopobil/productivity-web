@@ -30,9 +30,12 @@ const Profile = (props) => {
 
   useEffect(() => {
     if (userId) {
-      getUserPosts(userId.id).then((response) => {
-        response.sort((a, b) => b.createdAt - a.createdAt);
-        addDurationAndSetTotalCount(response);
+      getUserPosts(userId.id)
+      .then((response) => {
+        const orderedPosts = response.sort((a, b) => {
+          return new Date(b.createdAt) - new Date(a.createdAt);
+        });
+        addDurationAndSetTotalCount(orderedPosts);
       });
       getUserByID(userId.id).then((response) => {
         setUserProfile(response);
