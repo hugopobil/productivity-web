@@ -33,7 +33,11 @@ const Posts = () => {
   const fetchPosts = () => {
     getPosts()
       .then((response) => {
-        setPosts(response);
+        // Order posts by createdAt, with the most recent first
+        const orderedPosts = response.sort((a, b) => {
+          return new Date(b.createdAt) - new Date(a.createdAt);
+        });
+        setPosts(orderedPosts);
       })
       .catch((error) => console.error(error));
   };
