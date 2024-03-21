@@ -19,6 +19,7 @@ const Chat = () => {
     const [newMessageContent, setNewMessageContent] = useState('');
 
     const fetchChat = useCallback(() => {
+
         getChat(chatId)
             .then(chatRes => {
                 // console.log(chatRes)
